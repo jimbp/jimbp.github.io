@@ -1,0 +1,191 @@
+<!DOCTYPE html> 
+<html lang="en">
+
+<%
+attributes['titleLong'] = "Groton Trails Network"
+%>
+
+<%include file="header.tmpl"/>
+            
+<body> 
+    <%include file="nav.tmpl"/>
+    
+    <section class="title">
+        <%include file="title-icon.tmpl"/>
+        <H1>Groton Trails Network </H1>
+    </section>
+    
+    <section class="quote">
+        <p><q>In every walk with nature, one receives far more than he seeks</q><br/>-John Muir</p>
+      </section>
+  
+    <section class="post">
+
+    <p>Welcome and explore the Groton trail system. Groton has over 10 square miles of conservation land with 
+        over a 100 miles of maintained trails. Explore lakes, eskers, oxbo's, drumlins, kettle holes, rivers, streams, vernal pools, 
+    fields, hills, working farms, swimming holes, a historic barn, beaver dams, kinetic art, bike trails, and of course 
+    wildlife. The navigation bar has an interactive map of the trails and suggested list of fun trail activities. To 
+    contact us see our <a href="about.html">About Us</a> Page.</p>
+    
+    <a id="imageroll-a" href=""><img class="welcomeimage" id="imageroll-img" src="images/williams-barn-trail-winter.jpg"/></a>
+    <div id="walkoftheweek">
+    <p id="walkid"></p>
+    <div class="welcomemap" id="mapid"></div>
+    </div>
+
+    <p>The friends of the Groton Trail Network would like to thank the many landowners that make our wonderful trail network possible.
+        <a href="https://www.grotonma.gov/government/boards-and-committees/conservation-commission/" >Groton Conservation Commission</a>, 
+        <a href="http://www.gctrust.org/">Groton Conservation Trust</a>, 
+        <a href="https://newenglandforestry.org/">New England Forestry Foundation</a>,  
+        <a href="https://www.massaudubon.org/">Mass Audubon</a>, 
+        <a href="https://www.mass.gov/eea/agencies/dcr/">Mass Department of Conservation and Recreation</a>, and 
+        <a href="https://hgaa.org/">Hazel Grove Park</a>. The <a href="https://www.mass-trails.org/towns/Groton.html">mass-trails.org</a> 
+        site has a <a href="https://www.mass-trails.org/towns/Groton/Properties_.html">complete list</a> of the 
+        200 conservation properties and landowners in Groton.
+    </p> 
+        
+    <p>After exploring our trail network, check out the trails in the towns surrounding Groton.
+        <a href="https://littletonconservationtrust.org/" > Littleton Conservation Trust</a>, 
+        <a href="http://westfordconservationtrust.org/trails/about-the-trail-system/" > Westford Conservation Trust</a>, 
+        <a href="http://nashobatrust.org/wp-content/uploads/2014/01/Pepperell-Trail-Guide.pdf" > Pepperell Trail Guide</a>, 
+        <a href="https://www.dunstable-ma.gov/conservation-commission/pages/trail-maps" > Dunstable Trail Maps</a>, 
+        <a href="http://drlt.org/" >Dunstable Rural Land Trust</a>, and  
+        <a href="https://www.mrpc.org/sites/g/files/vyhlif3491/f/uploads/townsend_trailinventory_85x11l.pdf" >Townsend Trail Map</a>. </p>
+   
+    <P>If you are unsure of anything regarding the trails, take a look at our <a href="rules.html">Trail Use Guidelines</a>. </P>
+    </section>
+   
+    <footer>
+    <p>Map &copy; <a href="https://www.mapbox.com">Mapbox</a>, <a href="https://openstreetmap.org">OpenStreetMap</a>, <a href="http://leafletjs.com">Leaflet</a>
+    </footer>
+            
+    <%include file="menuscript.tmpl"/>
+
+</body>
+
+<script src="photos.js"></script>
+
+<script>
+
+var dateNow = new Date()
+
+// the initial seed
+Math.seed = 6;
+ 
+// in order to work 'Math.seed' must NOT be undefined,
+// so in any case, you HAVE to provide a Math.seed
+Math.seededRandom = function(max, min) {
+    max = max || 1;
+    min = min || 0;
+ 
+    Math.seed = (Math.seed * 9301 + 49297) % 233280;
+    var rnd = Math.seed / 233280;
+ 
+    return min + rnd * (max - min);
+}
+
+
+function loadJSON(url, callback) {   
+    let xobj = new XMLHttpRequest();
+    xobj.overrideMimeType("application/json");
+
+    xobj.onreadystatechange = function () {
+            if (xobj.readyState == 4 && xobj.status == "200") {
+                callback(xobj.responseText);
+        }
+    };
+    xobj.open('GET', url, true);
+    xobj.send();  
+}
+
+function complete() {
+
+    var hikes = []
+    function onEachFeature(feature, layer) {
+        // does this feature have a property named popupContent?
+        if (feature.properties ) {
+            hikes.push( feature)
+        }
+    }
+
+    L.geoJson(overlaysJSON,{onEachFeature: onEachFeature} )
+
+    var date = new Date(2019,0,7,0)
+
+    var weeksF = (dateNow-date)/(1000*60*60*24*7)
+    Math.seed = Math.floor(weeksF);    
+    var index = Math.floor(Math.seededRandom( hikes.length,0))
+    var feature = hikes[index]
+    
+    var hours = Math.ceil(feature.properties.lengthMiles / 2.1 * 2)/2
+            
+    document.getElementById("walkid").innerHTML = 
+        'Every Monday a suggested walk is shared here. This weeks walk is the ' + 
+        feature.properties.name + 
+        '. It is approximately a ' + 
+        hours.toFixed(1) + 
+        ' hour walk covering ' + 
+        feature.properties.lengthMiles.toFixed(1) + 
+        ' Miles. ' + 
+        feature.properties.description
+
+    var routineStyle = {
+        "color": "#0000FF",
+        "weight": 4,
+        'opacity': 0.8,
+        "fill": 0
+        };
+
+    var featureLayer = L.geoJson(feature,{style: routineStyle})
+    
+    featureLayer.addTo(map)
+
+    map.fitBounds(featureLayer.getBounds())
+
+    map.on('click', function (e) {
+        window.location.href = 'Interactive_Maps.html#map=' + map.getZoom() + '/' + e.latlng.lat.toPrecision(7) + '/' + e.latlng.lng.toPrecision(7);
+    });
+
+}
+
+if ( 1 || dateNow.getMonth() < 3 || dateNow.getMonth() == 11 ) {
+    document.getElementById("walkoftheweek").style.display = "none"
+
+    Math.seed = dateNow.getUTCHours() + dateNow.getUTCDay()
+ 
+    function displayImage() {
+        var i = Math.floor(Math.seededRandom( photoData['features'].length-1,0))
+ 
+        var img = document.getElementById("imageroll-img")
+        img.src = photoData['features'][i]['properties']['url']
+
+        var a = document.getElementById("imageroll-a")
+        lng = photoData['features'][i]['geometry']['coordinates'][0]
+        lat = photoData['features'][i]['geometry']['coordinates'][1]
+        a.href = 'Interactive_Maps.html#map=17/' + lat.toPrecision(7) + '/' + lng.toPrecision(7);
+    }    
+
+    displayImage()
+
+    setInterval( displayImage, 10000);
+    
+} else {
+    document.getElementById("imageroll-a").style.display = "none"
+
+    // not the winter, show the walk of the week
+
+    var map = L.map('mapid',{zoomControl: true });
+
+    var mapboxOutdoors = L.tileLayer('https://gtctiles.blob.core.windows.net/gtctiles/tiles/{z}/{x}/{y}.png', {
+        attribution: mapboxAttrib,
+		minZoom: 13,	
+        maxZoom: 17		
+    });
+
+    loadJSON('/geo/walkingroute-all.geojson', function(response) { overlaysJSON = JSON.parse(response); complete() })
+}
+
+</script>
+
+</html>
+

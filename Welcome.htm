@@ -1,0 +1,297 @@
+<!DOCTYPE html> 
+<html lang="en">
+
+
+
+<!-- Generated from scripts/gensite.py, please don't edit directly. Edit the source file in the pages directory. -->
+<!-- This section is from pages/header.tmpl  -->
+<head>
+    <title>Groton Trails Network</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    
+    <link rel="stylesheet" href="style.css" />  
+    <link rel="stylesheet" href="print.css" media="print"  />
+    
+    <link href="https://fonts.googleapis.com/css?family=Neucha|Open+Sans" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+    integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+    crossorigin=""/>
+     
+    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+    integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+    crossorigin=""></script>
+
+    <script src="javascripts/trailmap.js"></script>
+    
+    <link rel="icon" sizes="196x196" type="image/png" href="/images/GTN-green-196.png" >
+    <link rel="icon" sizes="32x32"   type="image/png" href="/images/GTN-green-32.png" >
+    <link rel="icon" sizes="16x16"   type="image/png" href="/images/GTN-green-16.png" >
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/GTN-green-180.png">	
+    <link rel="apple-touch-icon" sizes="152x152" href="/images/GTN-green-152.png">	
+    <link rel="apple-touch-icon" sizes="120x120" href="/images/GTN-green-120.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/images/GTN-green-60.png" >
+    <link rel="apple-touch-icon" sizes="76x76" href="/images/GTN-green-76.png" >
+
+    <link rel="manifest" href="manifest.json">
+</head>
+        
+            
+<body> 
+    <!-- this section from pages/nav.tmpl -->
+<header role="banner">
+    <nav>
+    <a href="Welcome.html">Welcome</a>
+
+    <div class="dropdown">
+    <div onclick="dropdown('DropdownMaps')" class="dropbtn current">Maps</div>
+    <div id="DropdownMaps" class="dropdown-content">
+        <a href="Interactive_Maps.html">Interactive Map</a>
+        <a href="groton-town-forest-map.html">Town Forest Map</a>   
+        <a href="long-trails-map.html">Long Trails Map</a>						                    
+        <a href="printed_maps.html"> Printable Maps</a>
+    </div>
+    </div>
+                    
+    <div class="dropdown">
+    <div onclick="dropdown('DropdownActivities')" class="dropbtn current">Activities</div>
+    <div id="DropdownActivities" class="dropdown-content">
+        <a href="light-walks.html">Light&nbsp;Walks</a>
+        <a href="kid-friendly-walks.html">Kid&nbsp;Friendly&nbsp;Walks</a>
+        <a href="mountain-biking.html">Mountain&nbsp;Biking&nbsp;Trails</a>
+        <a href="river-walks.html">River&nbsp;Walks</a>
+        <a href="accessible-trail-walks.html">Accessible&nbsp;Trail&nbsp;Walks</a>
+        <a href="glacial-hikes.html">Glacial&nbsp;Hikes</a>
+        <a href="leaf-peeping.html">Leaf&nbsp;Peeping</a>
+        <a href="cross-country-skiing.html">Cross&nbsp;Country&nbsp;Skiing</a>
+        <a href="bird-watching.html">Bird&nbsp;Watching</a>
+        <a href="horseback-riding.html">Horseback&nbsp;Riding</a>
+        <a href="places-to-get-lost.html">Places&nbsp;To&nbsp;Get&nbsp;Lost&nbsp;In</a>
+        <a href="field-walks.html">Field&nbsp;Walks</a>
+        <a href="swimming.html">Places&nbsp;to&nbsp;Swim</a>
+        <a href="camping.html">Places&nbsp;To&nbsp;Camp</a>
+    </div>
+    </div>
+
+    <div class="dropdown">
+    <div onclick="dropdown('DropdownProperties')" class="dropbtn current">Properties</div>
+    <div id="DropdownProperties" class="dropdown-content">
+        <a href="groton-town-forest.html">Groton&nbsp;Town&nbsp;Forest</a>
+    </div>
+    </div>
+
+        <a href="about.html"> About&nbsp;Us</a>
+    </nav>
+</header>
+
+    
+    <section class="title">
+        <p></p><img src="images/GTN.png" width="64px" height="64px"/>
+        <H1>Groton Trails Network </H1>
+    </section>
+    
+    <section class="quote">
+        <p><q>In every walk with nature, one receives far more than he seeks</q><br/>-John Muir</p>
+      </section>
+  
+    <section class="post">
+
+    <p>Welcome and explore the Groton trail system. Groton has over 10 square miles of conservation land with 
+        over a 100 miles of maintained trails. Explore lakes, eskers, oxbo's, drumlins, kettle holes, rivers, streams, vernal pools, 
+    fields, hills, working farms, swimming holes, a historic barn, beaver dams, kinetic art, bike trails, and of course 
+    wildlife. The navigation bar has an interactive map of the trails and suggested list of fun trail activities. To 
+    contact us see our <a href="about.html">About Us</a> Page.</p>
+    
+    <a id="imageroll-a" href=""><img class="welcomeimage" id="imageroll-img" src="images/williams-barn-trail-winter.jpg"/></a>
+    <div id="walkoftheweek">
+    <p id="walkid"></p>
+    <div class="welcomemap" id="mapid"></div>
+    </div>
+
+    <p>The friends of the Groton Trail Network would like to thank the many landowners that make our wonderful trail network possible.
+        <a href="https://www.grotonma.gov/government/boards-and-committees/conservation-commission/" >Groton Conservation Commission</a>, 
+        <a href="http://www.gctrust.org/">Groton Conservation Trust</a>, 
+        <a href="https://newenglandforestry.org/">New England Forestry Foundation</a>,  
+        <a href="https://www.massaudubon.org/">Mass Audubon</a>, 
+        <a href="https://www.mass.gov/eea/agencies/dcr/">Mass Department of Conservation and Recreation</a>, and 
+        <a href="https://hgaa.org/">Hazel Grove Park</a>. The <a href="https://www.mass-trails.org/towns/Groton.html">mass-trails.org</a> 
+        site has a <a href="https://www.mass-trails.org/towns/Groton/Properties_.html">complete list</a> of the 
+        200 conservation properties and landowners in Groton.
+    </p> 
+        
+    <p>After exploring our trail network, check out the trails in the towns surrounding Groton.
+        <a href="https://littletonconservationtrust.org/" > Littleton Conservation Trust</a>, 
+        <a href="http://westfordconservationtrust.org/trails/about-the-trail-system/" > Westford Conservation Trust</a>, 
+        <a href="http://nashobatrust.org/wp-content/uploads/2014/01/Pepperell-Trail-Guide.pdf" > Pepperell Trail Guide</a>, 
+        <a href="https://www.dunstable-ma.gov/conservation-commission/pages/trail-maps" > Dunstable Trail Maps</a>, 
+        <a href="http://drlt.org/" >Dunstable Rural Land Trust</a>, and  
+        <a href="https://www.mrpc.org/sites/g/files/vyhlif3491/f/uploads/townsend_trailinventory_85x11l.pdf" >Townsend Trail Map</a>. </p>
+   
+    <P>If you are unsure of anything regarding the trails, take a look at our <a href="rules.html">Trail Use Guidelines</a>. </P>
+    </section>
+   
+    <footer>
+    <p>Map &copy; <a href="https://www.mapbox.com">Mapbox</a>, <a href="https://openstreetmap.org">OpenStreetMap</a>, <a href="http://leafletjs.com">Leaflet</a>
+    </footer>
+            
+    <!-- this section from pages/menuscript.tmpl -->
+<script>
+        function dropdown(id) {        
+            if ( id != "DropdownProperties") {
+                document.getElementById("DropdownProperties").classList.remove("show")
+            }
+            if ( id != "DropdownActivities") {
+                document.getElementById("DropdownActivities").classList.remove("show")
+            }    
+            if ( id != "DropdownMaps") {
+                document.getElementById("DropdownMaps").classList.remove("show")            
+            }
+            document.getElementById(id).classList.toggle("show");
+        }
+            
+        window.onclick = function(event) {
+          if (!event.target.matches('.dropbtn')) {
+        
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+              var openDropdown = dropdowns[i];
+              if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+              }
+            }
+          }
+        }
+</script> 
+        
+
+</body>
+
+<script src="photos.js"></script>
+
+<script>
+
+var dateNow = new Date()
+
+// the initial seed
+Math.seed = 6;
+ 
+// in order to work 'Math.seed' must NOT be undefined,
+// so in any case, you HAVE to provide a Math.seed
+Math.seededRandom = function(max, min) {
+    max = max || 1;
+    min = min || 0;
+ 
+    Math.seed = (Math.seed * 9301 + 49297) % 233280;
+    var rnd = Math.seed / 233280;
+ 
+    return min + rnd * (max - min);
+}
+
+
+function loadJSON(url, callback) {   
+    let xobj = new XMLHttpRequest();
+    xobj.overrideMimeType("application/json");
+
+    xobj.onreadystatechange = function () {
+            if (xobj.readyState == 4 && xobj.status == "200") {
+                callback(xobj.responseText);
+        }
+    };
+    xobj.open('GET', url, true);
+    xobj.send();  
+}
+
+function complete() {
+
+    var hikes = []
+    function onEachFeature(feature, layer) {
+        // does this feature have a property named popupContent?
+        if (feature.properties ) {
+            hikes.push( feature)
+        }
+    }
+
+    L.geoJson(overlaysJSON,{onEachFeature: onEachFeature} )
+
+    var date = new Date(2019,0,7,0)
+
+    var weeksF = (dateNow-date)/(1000*60*60*24*7)
+    Math.seed = Math.floor(weeksF);    
+    var index = Math.floor(Math.seededRandom( hikes.length,0))
+    var feature = hikes[index]
+    
+    var hours = Math.ceil(feature.properties.lengthMiles / 2.1 * 2)/2
+            
+    document.getElementById("walkid").innerHTML = 
+        'Every Monday a suggested walk is shared here. This weeks walk is the ' + 
+        feature.properties.name + 
+        '. It is approximately a ' + 
+        hours.toFixed(1) + 
+        ' hour walk covering ' + 
+        feature.properties.lengthMiles.toFixed(1) + 
+        ' Miles. ' + 
+        feature.properties.description
+
+    var routineStyle = {
+        "color": "#0000FF",
+        "weight": 4,
+        'opacity': 0.8,
+        "fill": 0
+        };
+
+    var featureLayer = L.geoJson(feature,{style: routineStyle})
+    
+    featureLayer.addTo(map)
+
+    map.fitBounds(featureLayer.getBounds())
+
+    map.on('click', function (e) {
+        window.location.href = 'Interactive_Maps.html#map=' + map.getZoom() + '/' + e.latlng.lat.toPrecision(7) + '/' + e.latlng.lng.toPrecision(7);
+    });
+
+}
+
+if ( 1 || dateNow.getMonth() < 3 || dateNow.getMonth() == 11 ) {
+    document.getElementById("walkoftheweek").style.display = "none"
+
+    Math.seed = dateNow.getUTCHours() + dateNow.getUTCDay()
+ 
+    function displayImage() {
+        var i = Math.floor(Math.seededRandom( photoData['features'].length-1,0))
+ 
+        var img = document.getElementById("imageroll-img")
+        img.src = photoData['features'][i]['properties']['url']
+
+        var a = document.getElementById("imageroll-a")
+        lng = photoData['features'][i]['geometry']['coordinates'][0]
+        lat = photoData['features'][i]['geometry']['coordinates'][1]
+        a.href = 'Interactive_Maps.html#map=17/' + lat.toPrecision(7) + '/' + lng.toPrecision(7);
+    }    
+
+    displayImage()
+
+    setInterval( displayImage, 10000);
+    
+} else {
+    document.getElementById("imageroll-a").style.display = "none"
+
+    // not the winter, show the walk of the week
+
+    var map = L.map('mapid',{zoomControl: true });
+
+    var mapboxOutdoors = L.tileLayer('https://gtctiles.blob.core.windows.net/gtctiles/tiles/{z}/{x}/{y}.png', {
+        attribution: mapboxAttrib,
+		minZoom: 13,	
+        maxZoom: 17		
+    });
+
+    loadJSON('/geo/walkingroute-all.geojson', function(response) { overlaysJSON = JSON.parse(response); complete() })
+}
+
+</script>
+
+</html>
+

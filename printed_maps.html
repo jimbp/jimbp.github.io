@@ -1,0 +1,205 @@
+<!DOCTYPE html> 
+<html lang="en">
+
+
+
+<!-- Generated from scripts/gensite.py, please don't edit directly. Edit the source file in the pages directory. -->
+<!-- This section is from pages/header.tmpl  -->
+<head>
+    <title>Printable Trail Maps - Groton</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    
+    <link rel="stylesheet" href="style.css" />  
+    <link rel="stylesheet" href="print.css" media="print"  />
+    
+    <link href="https://fonts.googleapis.com/css?family=Neucha|Open+Sans" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+    integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+    crossorigin=""/>
+     
+    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+    integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+    crossorigin=""></script>
+
+    <script src="javascripts/trailmap.js"></script>
+    
+    <link rel="icon" sizes="196x196" type="image/png" href="/images/GTN-green-196.png" >
+    <link rel="icon" sizes="32x32"   type="image/png" href="/images/GTN-green-32.png" >
+    <link rel="icon" sizes="16x16"   type="image/png" href="/images/GTN-green-16.png" >
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/GTN-green-180.png">	
+    <link rel="apple-touch-icon" sizes="152x152" href="/images/GTN-green-152.png">	
+    <link rel="apple-touch-icon" sizes="120x120" href="/images/GTN-green-120.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/images/GTN-green-60.png" >
+    <link rel="apple-touch-icon" sizes="76x76" href="/images/GTN-green-76.png" >
+
+    <link rel="manifest" href="manifest.json">
+</head>
+        
+        
+<body> 
+    <!-- this section from pages/nav.tmpl -->
+<header role="banner">
+    <nav>
+    <a href="Welcome.html">Welcome</a>
+
+    <div class="dropdown">
+    <div onclick="dropdown('DropdownMaps')" class="dropbtn current">Maps</div>
+    <div id="DropdownMaps" class="dropdown-content">
+        <a href="Interactive_Maps.html">Interactive Map</a>
+        <a href="groton-town-forest-map.html">Town Forest Map</a>   
+        <a href="long-trails-map.html">Long Trails Map</a>						                    
+        <a href="printed_maps.html"> Printable Maps</a>
+    </div>
+    </div>
+                    
+    <div class="dropdown">
+    <div onclick="dropdown('DropdownActivities')" class="dropbtn current">Activities</div>
+    <div id="DropdownActivities" class="dropdown-content">
+        <a href="light-walks.html">Light&nbsp;Walks</a>
+        <a href="kid-friendly-walks.html">Kid&nbsp;Friendly&nbsp;Walks</a>
+        <a href="mountain-biking.html">Mountain&nbsp;Biking&nbsp;Trails</a>
+        <a href="river-walks.html">River&nbsp;Walks</a>
+        <a href="accessible-trail-walks.html">Accessible&nbsp;Trail&nbsp;Walks</a>
+        <a href="glacial-hikes.html">Glacial&nbsp;Hikes</a>
+        <a href="leaf-peeping.html">Leaf&nbsp;Peeping</a>
+        <a href="cross-country-skiing.html">Cross&nbsp;Country&nbsp;Skiing</a>
+        <a href="bird-watching.html">Bird&nbsp;Watching</a>
+        <a href="horseback-riding.html">Horseback&nbsp;Riding</a>
+        <a href="places-to-get-lost.html">Places&nbsp;To&nbsp;Get&nbsp;Lost&nbsp;In</a>
+        <a href="field-walks.html">Field&nbsp;Walks</a>
+        <a href="swimming.html">Places&nbsp;to&nbsp;Swim</a>
+        <a href="camping.html">Places&nbsp;To&nbsp;Camp</a>
+    </div>
+    </div>
+
+    <div class="dropdown">
+    <div onclick="dropdown('DropdownProperties')" class="dropbtn current">Properties</div>
+    <div id="DropdownProperties" class="dropdown-content">
+        <a href="groton-town-forest.html">Groton&nbsp;Town&nbsp;Forest</a>
+    </div>
+    </div>
+
+        <a href="about.html"> About&nbsp;Us</a>
+    </nav>
+</header>
+
+        
+    <section class="title">
+        <p></p><img src="images/GTN.png" width="64px" height="64px"/>
+        <H1> Printable Maps </H1>
+    </section>
+    
+    <section class="quote">
+        <p><q>Let’s wander where<br/> the wifi is weak </q><br/> - Unknown</p>
+    </section>
+    
+    <section class="post">
+            <br/>
+        <h2>Current Maps</h2>
+            
+            <aside> </aside>
+        
+            <a href="Media/Bates%20Blackman%20Area%20Trail%20Map%20-%20Groton%20MA.pdf"> Bates Blackman Area</a>
+                <br/>
+            <a href="Media/Batten%20Woods%20Area%20Trail%20Map%20-%20Groton%20MA.pdf"> Batten Woods Area</a>
+                <br/>
+            <a href="Media/Bertozzi%20Conservation%20Area%20Trail%20Map%20-%20Groton%20MA.pdf"> Bertozzi Conservation Area</a>
+                <br/>
+            <a href="Media/Cox%20Walker%20Conservation%20Area%20Trail%20Map%20-%20Groton%20MA.pdf"> Cox Walker Conservation Area</a>
+                <br/>
+            <a href="Media/Gamlin%20Crystal%20Spring%20Area%20Trail%20Map%20-%20Groton%20MA.pdf"> Gamlin Crystal Spring Area</a>
+                <br/>
+            <a href="Media/General%20Field%20&%20Surrenden%20Farm%20Trail%20Map%20-%20Groton%20MA.pdf"> General Field and Surrenden Farm</a>
+                <br/>
+            <a href="Media/Groton%20Place%20Trail%20Map%20-%20Groton%20MA.pdf"> Groton Place</a>
+                <br/>
+            <a href="Media/Groton%20Town%20Forest%20Trail%20Map%20-%20Groton%20MA.pdf"> Groton Town Forest</a>
+                <br/>
+            <a href="Media/Hawtree%20Conservation%20Area%20Trail%20Map%20-%20Groton%20MA.pdf"> Hawtree Conservation Area</a>
+                <br/>
+            <a href="Media/Hayes%20Woods%20Trail%20Map%20-%20Groton%20MA.pdf"> Hayes Woods</a>
+                <br/>
+            <a href="Media/Hazel%20Grove%20Park%20Trail%20Map%20-%20Groton%20MA.pdf"> Hazel Grove Park</a>
+                <br/>
+            <a href="Media/J.%20Harry%20Rich%20State%20Forest%20Trail%20Map%20-%20Groton%20MA.pdf"> J Harry Rich State Forest</a>
+                <br/>
+            <a href="Media/Rocky%20Hills%20Trail%20Map%20-%20Groton%20MA.pdf"> Rocky Hill</a>
+                <br/>
+            <a href="Media/Scarlet%20Hill%20Trail%20Map%20-%20Groton%20MA.pdf"> Scarlet Hill</a>
+                <br/>
+            <a href="Media/Shepley%20Hill%20Trail%20Map%20-%20Groton%20MA.pdf"> Shepley Hill</a>
+                <br/>
+            <a href="Media/Skinner%20Forest%20Area%20Trail%20Map%20-%20Groton%20MA.pdf"> Skinner Forest Area</a>
+                <br/>
+            <a href="Media/Skitapet%20Conservation%20Land%20Trail%20Map%20-%20Groton%20MA.pdf"> Skitapet Conservation Land</a>
+                <br/>
+            <a href="Media/Throne%20Hill%20Area%20Trail%20Map%20-%20Groton%20MA.pdf"> Throne Hill Area</a>
+                <br/>
+            <a href="Media/Wharton%20Plantation%20Trail%20Map%20-%20Groton%20MA.pdf"> Wharton Plantation</a>
+                <br/>
+            <a href="Media/Williams%20Barn%20Area%20Trail%20Map%20-%20Groton%20MA.pdf"> William's Barn Area</a>
+        
+        <h2>Legacy Maps</h2>
+            <p>
+            
+            <a href="Media/Duck_Pond_Painted_Post_%28printable%20PDF%29.pdf" title="Media/Duck_Pond_Painted_Post_(printable PDF).pdf">Duck Pond - 2003</a> 
+                <br/>
+            <a href="Media/Fitch_Woods_%28printable%20PDF%29.pdf" title="Media/Fitch_Woods_(printable PDF).pdf" >Fitch's Woods - 2003</a> 
+                <br/>
+            <a href="Media/Hawtree_%28printable%20PDF%29.pdf" title="Media/Hawtree_(printable PDF).pdf">Hawtree - 2003</a>  
+                <br/>
+            <a 
+            href="Media/LongleyI-II_Rich_%28printable%20PDF%29.pdf" title="Media/LongleyI-II_Rich_(printable PDF).pdf" >Longley - 2004</a> 
+                <br/>
+            <a href="Media/Sawtell_Groton_Hills_%28printable%20PDF%29.pdf" title="Media/Sawtell_Groton_Hills_(printable PDF).pdf">Sawtell - 2005</a> 
+                <br/>
+            <a href="Media/Shepley-Rich_%28printable%20PDF%29.pdf" title="Media/Shepley-Rich_(printable PDF).pdf">Shepley - 2004</a> 
+                <br/>
+            <a href="Media/Throne_Hill_%28printable%20PDF%29.pdf" title="Media/Throne_Hill_(printable PDF).pdf">Throne Hill - 2003</a> 
+                <br/>
+            <a href="Media/Groton_Town_Forest_Trail_Map_2002.pdf" title="Media/Groton_Town_Forest_Trail_Map_2002.pdf">Town Forest - 2002</a> 
+                <br/>
+            </p>
+            
+            <p>
+            <a href="Media/Groton%20Conservation%20Trust%20Guide%20to%20Properties.pdf" title="Media/Groton Conservation Trust Guide to Properties.pdf" >Groton Conservation Trust Guide</a>
+            </p>
+    </section> 
+     
+    <!-- this section from pages/menuscript.tmpl -->
+<script>
+        function dropdown(id) {        
+            if ( id != "DropdownProperties") {
+                document.getElementById("DropdownProperties").classList.remove("show")
+            }
+            if ( id != "DropdownActivities") {
+                document.getElementById("DropdownActivities").classList.remove("show")
+            }    
+            if ( id != "DropdownMaps") {
+                document.getElementById("DropdownMaps").classList.remove("show")            
+            }
+            document.getElementById(id).classList.toggle("show");
+        }
+            
+        window.onclick = function(event) {
+          if (!event.target.matches('.dropbtn')) {
+        
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+              var openDropdown = dropdowns[i];
+              if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+              }
+            }
+          }
+        }
+</script> 
+        
+ 
+</body>
+
+</html>
