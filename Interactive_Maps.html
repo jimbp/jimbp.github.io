@@ -278,7 +278,7 @@ function main() {
 	    					
     // remove leaflet attribution
     map.attributionControl.setPrefix('')
-	L.control.locate({watch:true,enableHighAccuracy:true}).addTo(map);	
+	L.control.locate({cacheLocation:false,locateOptions:{enableHighAccuracy:true}}).addTo(map);	
 }
 
 window.onload = main;
