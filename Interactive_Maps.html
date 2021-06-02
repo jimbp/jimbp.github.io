@@ -254,6 +254,9 @@ function main() {
 	  var newFragment = "#map=" + map.getZoom() + "/" + pos.lat.toPrecision(7) + "/" + pos.lng.toPrecision(7);
 	  history.replaceState({},'',newFragment);
 	}
+	function onLocationFound(e) {
+	    console.log('Location',e);
+	}
 	
     if ( location && location.hash.indexOf("#map=") == 0 ) {
 	  var url = location.hash.slice(5);
@@ -269,6 +272,7 @@ function main() {
 	map.on('moveend', updateURL );
     map.on('zoomend', updateURL );
 	map.on('zoomend', updateMarkers);
+	map.on('locationfound', onLocationFound);
 
 	updateMarkers();
 	    					
