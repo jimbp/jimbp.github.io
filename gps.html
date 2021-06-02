@@ -1,3 +1,4 @@
+<script>
 var options = {
   enableHighAccuracy: true,
   timeout: 5000,
@@ -18,10 +19,16 @@ function success(pos) {
   log(`Latitude : ${crd.latitude}`);
   log(`Longitude: ${crd.longitude}`);
   log(`More or less ${crd.accuracy} meters.`);
+  document.getElementById("refresh").style.display = "block";
 }
 
 function error(err) {
   console.warn(`ERROR(${err.code}): ${err.message}`);
+  document.getElementById("refresh").style.display = "block";
 }
 
 navigator.geolocation.getCurrentPosition(success, error, options);
+</script>
+<html>
+<button id="refresh" style="display:none" onClick="window.location.reload();">Refresh Page</button>
+</html
