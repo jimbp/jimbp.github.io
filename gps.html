@@ -1,0 +1,27 @@
+var options = {
+  enableHighAccuracy: true,
+  timeout: 5000,
+  maximumAge: 0
+};
+
+function log(data) {
+  const tag = document.createElement('p');
+  tag.textContent = data;
+  document.body.appendChild(tag);
+}
+
+function success(pos) {
+  var crd = pos.coords;
+  console.log('Successfully determined a user position:', crd);
+
+  log('Your current position is:');
+  log(`Latitude : ${crd.latitude}`);
+  log(`Longitude: ${crd.longitude}`);
+  log(`More or less ${crd.accuracy} meters.`);
+}
+
+function error(err) {
+  console.warn(`ERROR(${err.code}): ${err.message}`);
+}
+
+navigator.geolocation.getCurrentPosition(success, error, options);
