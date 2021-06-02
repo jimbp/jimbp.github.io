@@ -15,7 +15,7 @@
     <script src='https://api.mapbox.com/mapbox.js/v3.3.1/mapbox.js'></script>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.0/dist/leaflet.css"
    crossorigin=""/>
-<script src="https://unpkg.com/leaflet@1.7.0/dist/leaflet.js"
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
    crossorigin=""></script>   
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol/dist/L.Control.Locate.min.css"/>
@@ -137,6 +137,7 @@ function main() {
  
     // create leaflet map
     var map = L.map('map', {
+        tap: false,
         zoomControl: true,
         center: [42.608, -71.572],
         zoom: 13        
@@ -273,8 +274,7 @@ function main() {
 	    					
     // remove leaflet attribution
     map.attributionControl.setPrefix('')
-
-	L.control.locate().addTo(map);	
+	L.control.locate({watch:true,enableHighAccuracy:true}).addTo(map);	
 }
 
 window.onload = main;
