@@ -1,3 +1,7 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Location Test</title>
 <script>
 var options = {
   enableHighAccuracy: true,
@@ -32,6 +36,7 @@ function error(err) {
 document.body.style.cursor = 'wait';
 navigator.geolocation.getCurrentPosition(success, error, options);
 </script>
-<html>
+<body>
 <button id="refresh" style="display:none" onClick="window.location.reload();">Refresh Page</button>
-</html
+</body>
+</html>
