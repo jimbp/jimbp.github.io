@@ -135,6 +135,15 @@ function main() {
     });
     var osmLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: osmAttrib });
  
+    var newMapBox = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+        attribution: '© <a href="https://www.mapbox.com/about/maps/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> <strong><a href="https://www.mapbox.com/map-feedback/" target="_blank">Improve this map</a></strong>',
+        tileSize: 512,
+        maxZoom: 18,
+        zoomOffset: -1,
+        id: 'mapbox/streets-v11',
+        accessToken: 'pk.eyJ1IjoianJlbWlsbGFyZCIsImEiOiJzX2dhaXN3In0.qWyAnddfUVfs61ojApFvsg'
+        }).addTo(map);
+ 
     // create leaflet map
     var map = L.map('map', {
         tap: false,
@@ -161,7 +170,8 @@ function main() {
     var baseMaps = {
     	"OSM": osmLayer,
         "Old Map": gtcTrails,
-        "Satellite": mapboxSatellite
+        "Satellite": mapboxSatellite,
+        "New Mapbox": newMapBox,
     };
 	var layerOptions = { 
 		"Photos" : photosLayerGroup
