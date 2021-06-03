@@ -20,13 +20,16 @@ function success(pos) {
   log(`Longitude: ${crd.longitude}`);
   log(`More or less ${crd.accuracy} meters.`);
   document.getElementById("refresh").style.display = "block";
+  document.body.style.cursor = 'default';
 }
 
 function error(err) {
   console.warn(`ERROR(${err.code}): ${err.message}`);
   document.getElementById("refresh").style.display = "block";
+  document.body.style.cursor = 'default';
 }
 
+document.body.style.cursor = 'wait';
 navigator.geolocation.getCurrentPosition(success, error, options);
 </script>
 <html>
