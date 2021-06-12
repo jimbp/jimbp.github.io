@@ -96,7 +96,14 @@
     </div>
 
         <a href="about.html"> About&nbsp;Us</a>
-    </nav>
+    <div class="dropdown">
+    <div onclick="dropdown('DropdownSettings')" class="dropbtn current">Settings</div>
+    <div id="DropdownSettings" class="dropdown-content">
+       <a href="#" style="font-size:16px" onclick="toggleMotionDetection();"><span id="motioncheck">&#10003</span> Motion Detection</a>
+       <a href="#" style="font-size:16px" onclick="toggleAccuracy();"><span id="accuracycheck">&#10003</span> High Accuracy</a>
+    </div>
+    </div>
+   </nav>
 </header>
 
 				
@@ -105,11 +112,24 @@
 </body>
 
 <script>
-function main() {
-    
-    console.log(window.navigator);
-    console.log(window.navigator.geolocation);
- 
+var lc;
+    function toggleMotionDetection() {
+     	lc.options.showCompass = !lc.options.showCompass;
+   		check('motioncheck',lc.options.showCompass);
+    }
+    function toggleAccuracy() {
+   		lc.options.locateOptions.enableHighAccuracy = !lc.options.locateOptions.enableHighAccuracy;
+   		check('accuracycheck',lc.options.locateOptions.enableHighAccuracy);
+    }
+    function check(eid,show) {
+    	var e = document.getElementById(eid);
+    	if (e) {
+    	if (show) e.style.display = "inline";
+    	else e.style.display = "none";
+    	}
+    }
+  	function main() {
+     
 	var forInfoOnly = "For informational purposes only.<br>"
     var osmAttrib = forInfoOnly + '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
 	var mapboxAttrib = forInfoOnly + "&copy; <a href=\'https://www.mapbox.com/about/maps/\'>Mapbox</a> © <a href=\'http://www.openstreetmap.org/copyright\'>OpenStreetMap</a> <strong><a href=\'https://www.mapbox.com/map-feedback/\' target=\'_blank\'>Improve this map</a></strong>"
@@ -168,11 +188,11 @@ function main() {
 			
     // set basemaps
     var baseMaps = {
+       "Mapbox": newMapBox,
     	"OSM": osmLayer,
         "Old Map": gtcTrails,
         "Satellite": mapboxSatellite,
-        "New Mapbox": newMapBox,
-    };
+     };
 	var layerOptions = { 
 		"Photos" : photosLayerGroup
 	};
@@ -181,7 +201,7 @@ function main() {
 
     L.control.scale().addTo(map);
 
-    osmLayer.addTo(map);
+    newMapBox.addTo(map);
 	
     //var parkingIconObj = L.icon({ iconUrl: 'images/parking.png',iconSize: [16,16] } )
 	var smallDropIconObj = L.icon({ iconUrl: 'images/small-drop-marker.png', iconSize: [32,32]})
@@ -288,7 +308,23 @@ function main() {
 	    					
     // remove leaflet attribution
     map.attributionControl.setPrefix('')
-	L.control.locate({cacheLocation:false,showCompass:false,locateOptions:{enableHighAccuracy:true}}).addTo(map);	
+	lc = L.control.locate({cacheLocation:false,showCompass:false,locateOptions:{enableHighAccuracy:true}});
+	lc.addTo(map);
+  	check('motioncheck',lc.options.showCompass);
+   	check('accuracycheck',lc.options.locateOptions.enableHighAccuracy);
+ 	
+	map.addEventListener('mousemove', function(ev) {lat = ev.latlng.lat; lng = ev.latlng.lng;});
+
+	document.getElementById("map").addEventListener("contextmenu", function (event) {
+    	// Prevent the browser's context menu from appearing
+    	event.preventDefault();
+
+    // Add marker
+    // L.marker([lat, lng], ....).addTo(map);
+    	alert('lat: '+lat + '\nlng:' + lng);
+
+    	return false; // To disable default popup.
+	});	
 }
 
 window.onload = main;
