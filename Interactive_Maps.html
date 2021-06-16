@@ -9,17 +9,15 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" >
 
-     <link rel="stylesheet" href="style.css" >
+    <link rel="stylesheet" href="style.css" >
     <link rel="stylesheet" href="print.css" media="print"  />
 
     <script src='https://api.mapbox.com/mapbox.js/v3.3.1/mapbox.js'></script>
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.0/dist/leaflet.css"
-   crossorigin=""/>
-<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-   crossorigin=""></script>   
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol/dist/L.Control.Locate.min.css"/>
-<script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol/dist/L.Control.Locate.min.js" charset="utf-8"></script>
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.0/dist/leaflet.css" crossorigin=""/>
+	<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" crossorigin=""></script>   
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol/dist/L.Control.Locate.min.css"/>
+	<script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol/dist/L.Control.Locate.min.js" charset="utf-8"></script>
 
     <script src="javascripts/leaflet.easyPrint.js"></script>   
 
@@ -40,7 +38,7 @@
         height: 93%;				
         margin: 0;
         }
-    </style>    
+     </style>    
 
 </head>
         
@@ -112,7 +110,7 @@
 </body>
 
 <script>
-var lc;
+	var lc;
     function toggleMotionDetection() {
      	lc.options.showCompass = !lc.options.showCompass;
    		check('motioncheck',lc.options.showCompass);
@@ -308,7 +306,7 @@ var lc;
 	    					
     // remove leaflet attribution
     map.attributionControl.setPrefix('')
-	lc = L.control.locate({cacheLocation:false,showCompass:false,locateOptions:{enableHighAccuracy:true}});
+	lc = L.control.locate({cacheLocation:false,showCompass:true,locateOptions:{enableHighAccuracy:true}});
 	lc.addTo(map);
   	check('motioncheck',lc.options.showCompass);
    	check('accuracycheck',lc.options.locateOptions.enableHighAccuracy);
