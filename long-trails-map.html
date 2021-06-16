@@ -160,11 +160,8 @@ function main() {
         center: [42.58736,-71.56725],
         zoom: 14        
     });
- 
-    // create leaflet map
-    var map = L.map('map')
 
-	L.easyPrint({title: 'Print The Map!', position: 'topleft' }).addTo(map);
+  	L.easyPrint({title: 'Print The Map!', position: 'topleft' }).addTo(map);
 
 	var overlaysJSON = [
 		null,
