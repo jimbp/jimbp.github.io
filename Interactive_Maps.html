@@ -306,7 +306,7 @@
 	    					
     // remove leaflet attribution
     map.attributionControl.setPrefix('')
-	lc = L.control.locate({cacheLocation:false,showCompass:true,locateOptions:{enableHighAccuracy:true}});
+	lc = L.control.locate({cacheLocation:false,showCompass:true,locateOptions:{enableHighAccuracy:true,maxZoom:17}});
 	lc.addTo(map);
   	check('motioncheck',lc.options.showCompass);
    	check('accuracycheck',lc.options.locateOptions.enableHighAccuracy);

@@ -278,7 +278,7 @@ function main() {
 		// remove leaflet attribution
 		map.attributionControl.setPrefix('')
 
-		L.control.locate({cacheLocation:false,showCompass:true,locateOptions:{enableHighAccuracy:true}}).addTo(map);
+		L.control.locate({cacheLocation:false,showCompass:true,locateOptions:{enableHighAccuracy:true,maxZoom:17}}).addTo(map);
 	}
 
 	//loadJSON('/geo/walkingroute-grotontour.geojson',     function(response) { overlaysJSON[0] = JSON.parse(response); complete() })		
