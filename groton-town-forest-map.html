@@ -106,7 +106,6 @@
 </body>
 
 <script>
-var lc;
 function loadJSON(url, callback) {   
 	let xobj = new XMLHttpRequest();
 	xobj.overrideMimeType("application/json");
@@ -156,7 +155,12 @@ function main() {
         });
 
     // create leaflet map
-    var map = L.map('map')
+     var map = L.map('map', {
+        tap: false,
+        zoomControl: true,
+        center: [42.59062,-71.61020],
+        zoom: 15        
+    });
 
 	L.easyPrint({title: 'Print The Map!', position: 'topleft' }).addTo(map);
 
@@ -230,10 +234,10 @@ function main() {
 		}
 
 		var baseMaps = {
-			"Map": gtcTrails,
+			"Mapbox Outdoors": newMapBox,
+			"Old Map": gtcTrails,
 			"Satellite": mapboxSatellite,
-			"OSM": osmLayer,
-			"Mapbox": newMapBox
+			"OSM": osmLayer
 	    };
 
 		L.control.layers(baseMaps, overlays, {collapsed: collapsedV}).addTo(map);    
@@ -242,7 +246,7 @@ function main() {
 
 		L.control.scale().addTo(map);
 
-		gtcTrails.addTo(map);
+		newMapBox.addTo(map);
 				
 		function updateURL() {
 			let pos = map.getCenter();
@@ -268,8 +272,7 @@ function main() {
 		// remove leaflet attribution
 		map.attributionControl.setPrefix('')
 
-		lc = L.control.locate({cacheLocation:false,showCompass:true,locateOptions:{enableHighAccuracy:true}});
-		lc.addTo(map);
+		L.control.locate({cacheLocation:false,showCompass:true,locateOptions:{enableHighAccuracy:true}}).addTo(map);
 	}
 
 	loadJSON('/geo/walkingroute-townforestlooptrail.geojson',function(response) { overlaysJSON[0] = JSON.parse(response); complete() })
