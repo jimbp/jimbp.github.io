@@ -20,6 +20,7 @@
 	<script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol/dist/L.Control.Locate.min.js" charset="utf-8"></script>
 
     <script src="javascripts/leaflet.easyPrint.js"></script>   
+	<script src="javascripts/privatepaths.js"></script>   
 
     <link rel="icon" sizes="196x196" type="image/png" href="/images/GTN-green-196.png" >
     <link rel="icon" sizes="32x32"   type="image/png" href="/images/GTN-green-32.png" >
@@ -111,6 +112,7 @@
 
 <script>
 	var lc;
+	var map;
     function toggleMotionDetection() {
      	lc.options.showCompass = !lc.options.showCompass;
    		check('motioncheck',lc.options.showCompass);
@@ -163,7 +165,7 @@
         });
  
     // create leaflet map
-    var map = L.map('map', {
+    map = L.map('map', {
         tap: false,
         zoomControl: true,
         center: [42.608, -71.572],
@@ -253,6 +255,8 @@
 			marker.bindPopup(markerElementData.properties.popupinfo)
 		}
 	}
+    
+	if (typeof loadPrivatePaths === 'function') loadPrivatePaths();
 
 	function updateMarkers() {
 		var zoom = map.getZoom()
