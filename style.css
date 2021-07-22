@@ -199,3 +199,22 @@ aside {
 .dropdown a:hover {background-color: #0a5b0b}
 
 .show {display:block;}
+
+div.info.legend {
+    background-color: white;
+    opacity: .75;
+}
+div.info.legend ul {
+  list-style-type: none;
+  padding: 2px;
+  margin: 0;
+}
+div.info.legend ul li span {
+    display: block;
+    float: left;
+    height: 4px;
+    margin-top: 6px;
+    width: 30px;
+    margin-right: 5px;
+    margin-left: 0;
+}

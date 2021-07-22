@@ -180,7 +180,7 @@
 	for (var i = 0; i < photoData.features.length; ++i) {
 		var markerElementData =  photoData.features[i]
 		var marker = L.marker(markerElementData.geometry.coordinates.reverse(),{icon: cameraIconObj })
-		marker.bindPopup("<a href=\"" +  markerElementData.properties.url + "\"> <img width=\"175\" height=\"175\" src=\"" + markerElementData.properties.url + "\" > </a>");
+		marker.bindPopup("<a href=\"" +  markerElementData.properties.url + "\"> <img width=\"250\" height=\"250\" src=\"" + markerElementData.properties.url + "\" > </a>");
 		photoMarkers.push( marker)
 	}
 

@@ -90,9 +90,9 @@
         "coordinates": [[-71.4920269,42.5901015],[-71.4918644,42.5906017],[-71.4916169,42.5910214],[-71.4915079,42.5913029],[-71.4915165,42.5918536],]
         },];
     var privateStyle = {
-        "fillColor": "red",
-        "color": "red",
-        "weight": 1,
+        "fillColor": "#C0C0C0",
+        "color": "#C0C0C0",
+        "weight": 3,
         "opacity": 1.0,
         "fillOpacity": 1.0,
     };
@@ -103,7 +103,15 @@
         var legend = L.control({position: 'topright'});
         legend.onAdd = function (map) {
             var div = L.DomUtil.create('div', 'info legend');
-            div.innerHTML = '<span style="color:red;font-weight:900;">----</span> Private';
+            var categories = ['Road','Unmaintained Road','Trail','Trail/Ski Trail','Private Trail'];
+            var backgrounds = ['#fff','#fff','repeating-linear-gradient(to right,#fff, #fff 20%,#D4BB3A 30%);','#fff','#C0C0C0'];
+            var borders = ['#E6E4E0','#D4BB3A','#D4BB3A','#8094F4','#D4BB3A'];
+            var html = '<ul>';
+            for (var i = 0; i < categories.length; i++) {
+                html += '<li><span style="background:'+backgrounds[i]+';border: 2px solid '+borders[i]+'"></span>'+ categories[i] + '</li>'
+            }
+            html += '</ul>';
+            div.innerHTML  = html;
             return div;
         };
         legend.addTo(map);
