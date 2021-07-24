@@ -200,9 +200,17 @@ aside {
 
 .show {display:block;}
 
+.hide {display: none;}
+
+.infoDiv:hover {
+	float:right;
+}
+.infoDiv:hover + .hide {
+  display: block;
+}
+
 div.info.legend {
     background-color: white;
-    opacity: .75;
 }
 div.info.legend ul {
   list-style-type: none;
