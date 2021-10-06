@@ -129,7 +129,9 @@
        var href = location.href;
        if (href.indexOf('#') > 0)
            href = href.substr(0, href.indexOf('#')); 
-       var emailBody = href + '#map='+map.getZoom().toString()+'/'+position.coords.latitude.toString()+'/'+position.coords.longitude.toString()+'/mark'
+       var emailBody = 'Description: %0D%0A'
+      	+ href+'#map='+map.getZoom().toString()+'/'+position.coords.latitude.toString()+'/'+position.coords.longitude.toString()+'/mark %0D%0A' 
+      	+ 'Accuracy(meters) '+position.coords.accuracy;
        document.location = "mailto:"+email+"?subject=Trail Report&body="+emailBody;
    }
    function sendReport (ignored) {
