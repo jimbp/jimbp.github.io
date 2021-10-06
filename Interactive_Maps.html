@@ -113,6 +113,29 @@
 <script>
 	var lc;
 	var map;
+    var email = 'jim.peregoy@gmail.com';
+   function sendEmail() {
+		if (navigator.geolocation) {
+		    var options = {
+		            enableHighAccuracy: true,
+		            timeout: 7000,
+		            maximumAge: 0
+		          };
+		    navigator.geolocation.getCurrentPosition(sendPosition,sendReport,options);
+ 		} else
+ 		   sendReport(null);
+    }
+   function sendPosition (position) {
+       var href = location.href;
+       if (href.indexOf('#') > 0)
+           href = href.substr(0, href.indexOf('#')); 
+       var emailBody = href + '#map='+map.getZoom().toString()+'/'+position.coords.latitude.toString()+'/'+position.coords.longitude.toString()+'/mark'
+       document.location = "mailto:"+email+"?subject=Trail Report&body="+emailBody;
+   }
+   function sendReport (ignored) {
+       var href = location.href;
+        document.location = "mailto:"+email+"?subject=Trail Report";
+   }
     function toggleMotionDetection() {
      	lc.options.showCompass = !lc.options.showCompass;
    		check('motioncheck',lc.options.showCompass);
@@ -169,7 +192,7 @@
         tap: false,
         zoomControl: true,
         center: [42.608, -71.572],
-        zoom: 13        
+        zoom: 14        
     });
 
 	L.easyPrint({title: 'Print The Map!', position: 'topleft' }).addTo(map);
@@ -257,7 +280,15 @@
 	}
     
 	if (typeof loadPrivatePaths === 'function') loadPrivatePaths();
-
+    var email = L.control({position: 'topright'});
+    email.onAdd = function (map) {
+        var div = L.DomUtil.create('div', 'info email');
+        var html = '<span title="Tap to send trail report" onclick="sendEmail();" class="fa fa-envelope-o"></span>';
+        div.innerHTML  = html;
+        return div;
+    };
+    email.addTo(map);
+    
 	function updateMarkers() {
 		var zoom = map.getZoom()
 
@@ -294,7 +325,10 @@
 	  var url = location.hash.slice(5);
 	  var ll = url.split('/');
 	  map.panTo( [ll[1],ll[2]] );
-	  map.setZoom(ll[0]); 		
+	  map.setZoom(ll[0]);
+	  if (ll.length > 3) {
+	      var marker = L.marker([ll[1],ll[2]]).addTo(map);
+	  }
 	} else {
       var pos = map.getCenter();
 	  var newFragment = "#map=" + map.getZoom() + "/" + pos.lat.toPrecision(7) + "/" + pos.lng.toPrecision(7);

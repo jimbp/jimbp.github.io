@@ -9,7 +9,6 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" >
 
-    <link rel='stylesheet' href='https://api.mapbox.com/mapbox.js/v3.3.1/mapbox.css' >
     <link rel="stylesheet" href="style.css" >
     <link rel="stylesheet" href="print.css" media="print"  />
 
@@ -279,10 +278,10 @@ function main() {
 		L.control.locate({cacheLocation:false,showCompass:true,locateOptions:{enableHighAccuracy:true,maxZoom:17}}).addTo(map);
 	}
 
-	loadJSON('/geo/walkingroute-townforestlooptrail.geojson',function(response) { overlaysJSON[0] = JSON.parse(response); complete() })
-	loadJSON('/geo/walkingroute-grotontownforestrace95mileloop.geojson',  function(response) { overlaysJSON[1] = JSON.parse(response); complete() })
-	loadJSON('/geo/walkingroute-grotontownforestrace34mileloop.geojson',  function(response) { overlaysJSON[2] = JSON.parse(response); complete() })
-	loadJSON('/geo/townForest.geojson',    function(response) { overlaysJSON[3] = JSON.parse(response); complete() })		
+	loadJSON('geo/walkingroute-townforestlooptrail.geojson',function(response) { overlaysJSON[0] = JSON.parse(response); complete() })
+	loadJSON('geo/walkingroute-grotontownforestrace95mileloop.geojson',  function(response) { overlaysJSON[1] = JSON.parse(response); complete() })
+	loadJSON('geo/walkingroute-grotontownforestrace34mileloop.geojson',  function(response) { overlaysJSON[2] = JSON.parse(response); complete() })
+	loadJSON('geo/townForest.geojson',    function(response) { overlaysJSON[3] = JSON.parse(response); complete() })		
 }
 
 window.onload = main;
