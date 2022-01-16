@@ -15,11 +15,9 @@
        if (href.indexOf('#') > 0)
            href = href.substr(0, href.indexOf('#')); 
        href = href.replaceAll('about.html','Interactive_Maps.html');
-       var ua = window.navigator.userAgent;
-       var iOS = !ua.match(/iPad/i) && !ua.match(/iPhone/i);
-       var emailBody = (iOS ? '<html>' : '') + 'Description: %0D%0ALocation: '
+       var emailBody = 'Description: %0D%0ALocation: '
         + href+'#map=18/'+position.coords.latitude.toString()+'/'+position.coords.longitude.toString()+'/mark %0D%0A' 
-        + 'Accuracy(meters): '+position.coords.accuracy+(iOS ? '</html>' : '');
+        + 'Accuracy(meters): '+position.coords.accuracy;
        document.location = "mailto:"+reportemail+"?subject=Trail Hazards Report&body="+emailBody;
    }
    function sendReport (ignored) {

@@ -167,11 +167,21 @@
         });
  
     // create leaflet map
+    var clat = 42.608;
+    var clng = -71.572;
+    var czoom = 14;
+    if ( location && location.hash.indexOf("#map=") == 0 ) {
+  	  var url = location.hash.slice(5);
+  	  var ll = url.split('/');
+   	  czoom = Number(ll[0]);
+  	  clat = Number(ll[1]);
+  	  clng = Number(ll[2]);
+    }
     map = L.map('map', {
         tap: false,
         zoomControl: true,
-        center: [42.608, -71.572],
-        zoom: 14        
+        center: [clat, clng],
+        zoom: czoom        
     });
 
 	L.easyPrint({title: 'Print The Map!', position: 'topleft' }).addTo(map);
@@ -259,14 +269,6 @@
 	}
     
 	if (typeof loadPrivatePaths === 'function') loadPrivatePaths();
-    var email = L.control({position: 'topright'});
-    email.onAdd = function (map) {
-        var div = L.DomUtil.create('div', 'info email');
-        var html = '<span title="Tap to send trail hazards report" onclick="sendEmail();" class="fa fa-envelope-o"></span>';
-        div.innerHTML  = html;
-        return div;
-    };
-    email.addTo(map);
     
 	function updateMarkers() {
 		var zoom = map.getZoom()
@@ -299,7 +301,7 @@
 	function onLocationFound(e) {
 	    console.log('Location',e);
 	}
-	
+			
     if ( location && location.hash.indexOf("#map=") == 0 ) {
 	  var url = location.hash.slice(5);
 	  var ll = url.split('/');
