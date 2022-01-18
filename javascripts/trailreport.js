@@ -15,7 +15,7 @@
        if (href.indexOf('#') > 0)
            href = href.substr(0, href.indexOf('#')); 
        href = href.replaceAll('about.html','Interactive_Maps.html');
-       var emailBody = href+'#map=18/'+position.coords.latitude.toString()+'/'+position.coords.longitude.toString()+'/mark/'+ position.coords.accuracy;
+       var emailBody = href+'#map=18/'+position.coords.latitude.toString()+'/'+position.coords.longitude.toString()+'/mark/'+ position.coords.accuracy+'\n';
         document.location = "mailto:"+reportemail+"?subject=Trail Hazards Report&body="+emailBody;
    }
    function sendReport (ignored) {
