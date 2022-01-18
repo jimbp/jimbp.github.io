@@ -15,10 +15,8 @@
        if (href.indexOf('#') > 0)
            href = href.substr(0, href.indexOf('#')); 
        href = href.replaceAll('about.html','Interactive_Maps.html');
-       var emailBody = 'Description: %0D%0ALocation: '
-        + href+'#map=18/'+position.coords.latitude.toString()+'/'+position.coords.longitude.toString()+'/mark %0D%0A' 
-        + 'Accuracy(meters): '+position.coords.accuracy;
-       document.location = "mailto:"+reportemail+"?subject=Trail Hazards Report&body="+emailBody;
+       var emailBody = href+'#map=18/'+position.coords.latitude.toString()+'/'+position.coords.longitude.toString()+'/mark/'+ position.coords.accuracy;
+        document.location = "mailto:"+reportemail+"?subject=Trail Hazards Report&body="+emailBody;
    }
    function sendReport (ignored) {
        document.location = "mailto:"+email+"?subject=Trail Hazards Report";
