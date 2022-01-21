@@ -1,4 +1,10 @@
     var reportemail = 'jim.peregoy@gmail.com';
+    
+    function confirmTrailReport () {
+        if (confirm("Send a trail hazzard report to the Groton Trails Committee including your GPS location?") == true) {
+            sendEmail();
+        }
+    }
     function sendEmail() {
         if (navigator.geolocation) {
             var options = {
