@@ -1,7 +1,7 @@
     var reportemail = 'jim.peregoy@gmail.com';
     
     function confirmTrailReport () {
-        if (confirm("Report trail issues such as blocked trails, damaged bridges, missing trail markers, flooded trails to the Groton Trails Committee including your GPS location?") == true) {
+        if (confirm("Report trail issues such as blocked trails, damaged bridges, missing trail markers, flooded trails to the Groton Trails Committee?  Email will include your GPS location.") == true) {
             sendEmail();
         }
     }
@@ -22,8 +22,8 @@
            href = href.substr(0, href.indexOf('#')); 
        href = href.replaceAll('about.html','Interactive_Maps.html');
        var emailBody = href+'#map=18/'+position.coords.latitude.toString()+'/'+position.coords.longitude.toString()+'/mark/'+ position.coords.accuracy+'\n';
-        document.location = "mailto:"+reportemail+"?subject=Trail Hazards Report&body="+emailBody;
+        document.location = "mailto:"+reportemail+"?subject=Trail Issue Report&body="+emailBody;
    }
    function sendReport (ignored) {
-       document.location = "mailto:"+email+"?subject=Trail Hazards Report";
+       document.location = "mailto:"+email+"?subject=Trail Issue Report";
    }
