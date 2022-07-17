@@ -171,10 +171,11 @@
 	        types: ['geocode','establishment'],
 	      };
 
-	      const autocomplete = new google.maps.places.Autocomplete(input, options);
+	      var autocomplete = new google.maps.places.Autocomplete(document.getElementById("pac-input"), {types: ['geocode','establishment']});
 	      autocomplete.setBounds({ east: -71.53066, west: -71.61483, north: 42.65590, south: 42.58239 });
+	      autocomplete.setFields(['geometry', 'name']);
 
-	      autocomplete.addListener("place_changed", function() {
+	      autocomplete.addListener('place_changed', function() {
 	        const place = autocomplete.getPlace();
 	        //console.log('place ',place.name,place.formatted_address);
 	        var plat = place.geometry.location.lat();
@@ -184,6 +185,15 @@
 	        var marker = L.marker([plat, plng],{}).addTo(map);
 	        map.setView([plat, plng], 16);
 	      });
+		  // need to stop prop of the touchend event
+	      if (navigator.userAgent.match(/(iPad|iPhone|iPod)/g)) {
+	          setTimeout(function() {
+	              var container = document.getElementsByClassName('pac-container')[0];
+	              container.addEventListener('touchend', function(e) {
+	                  e.stopImmediatePropagation();
+	              });
+	          }, 500);
+	      }	
 	}
  	window.initGSearch = initGSearch;
 
