@@ -41,6 +41,33 @@
         height: 93%;				
         margin: 0;
         }
+		#pac-container {
+		    border: 2px solid #ccc!important;
+		    border-radius: 16px;
+		    width: 440px;
+		    margin:auto;
+		    position: relative;
+		    background-color: #fff;
+			display: inline-block;
+			height: 24px;
+		}
+		#pac-input {
+		  background-color: #fff;
+		  font-size: 15px;
+		  font-weight: 300;
+		  padding: 0;
+		  text-overflow: ellipsis;
+		  width: 400px;
+		  border:0;outline:0;
+		}
+		#pac-input:focus {
+		   outline:none!important;
+		}
+		.fa-search {
+			color:lightgray;
+			display: inline-block;
+			margin-right: 4px;
+		}
      </style>    
 
 </head>
@@ -104,6 +131,10 @@
        <a href="#" style="font-size:16px" onclick="toggleAccuracy();"><span id="accuracycheck">&#10003</span> High Accuracy</a>
     </div>
     </div>
+     <div id="pac-container" >
+       <i class="fa fa-search"></i><input id="pac-input" type="text" placeholder="Search Map" />
+     </div>
+    
    </nav>
 </header>
 
@@ -131,6 +162,28 @@
     	else e.style.display = "none";
     	}
     }
+	function initGSearch() {
+	      var input = document.getElementById("pac-input");
+	      var options = {
+	        types: ["establishment"],
+	      };
+
+	      const autocomplete = new google.maps.places.Autocomplete(input, options);
+	      autocomplete.setBounds({ east: -71.53066, west: 71.61483, north: 42.65590, south: 42.58239 });
+
+	      autocomplete.addListener("place_changed", function() {
+	        const place = autocomplete.getPlace();
+	        //console.log('place ',place.name,place.formatted_address);
+	        var plat = place.geometry.location.lat();
+	        var plng = place.geometry.location.lng();
+	        //console.log('location',plat,plng);
+	        // add a marker and set view
+	        var marker = L.marker([plat, plng],{}).addTo(map);
+	        map.setView([plat, plng], 16);
+	      });
+	}
+ 	window.initGSearch = initGSearch;
+
   	function main() {
      
 	var forInfoOnly = "For informational purposes only.<br>"
@@ -324,7 +377,15 @@
 	map.on('locationfound', onLocationFound);
 
 	updateMarkers();
-	    					
+
+    var legend = L.control({position: 'topleft'});
+    legend.onAdd = function (map) {
+        var div = L.DomUtil.create('div', 'info legend');
+        div.innerHTML  = '<div class="leaflet-touch"><div class="leaflet-bar"><a class="leaflet-bar-part leaflet-bar-part-single" title="Send a trail status email" href="javascript:confirmTrailReport();" style="outline: currentcolor none medium;"><img src="images/email.jpg"></a></div></div>';
+        return div;
+    };
+    legend.addTo(map);
+
     // remove leaflet attribution
     map.attributionControl.setPrefix('')
 	lc = L.control.locate({cacheLocation:false,showCompass:true,locateOptions:{enableHighAccuracy:true,maxZoom:17}});
@@ -344,18 +405,12 @@
 
     	return false; // To disable default popup.
 	});	
-    var legend = L.control({position: 'topleft'});
-    legend.onAdd = function (map) {
-        var div = L.DomUtil.create('div', 'info legend');
-        div.innerHTML  = '<div class="leaflet-touch"><div class="leaflet-bar"><a class="leaflet-bar-part leaflet-bar-part-single" title="Send a trail issue email" href="javascript:confirmTrailReport();" style="outline: currentcolor none medium;"><img src="images/email.jpg"></a></div></div>';
-        return div;
-    };
-    legend.addTo(map);
 }
 
 window.onload = main;
 
 </script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initGSearch&libraries=places&v=weekly" defer></script>
 
 <!-- this section from pages/menuscript.tmpl -->
 <script>
