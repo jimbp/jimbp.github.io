@@ -68,6 +68,9 @@
 			display: inline-block;
 			margin-right: 4px;
 		}
+		div.settings {
+			display:none;
+		}
      </style>    
 
 </head>
@@ -125,7 +128,7 @@
 
         <a href="about.html"> About&nbsp;Us</a>
     <div class="dropdown">
-    <div onclick="dropdown('DropdownSettings')" class="dropbtn current">Settings</div>
+    <div onclick="dropdown('DropdownSettings')" class="dropbtn current settings">Settings</div>
     <div id="DropdownSettings" class="dropdown-content">
        <a href="#" style="font-size:16px" onclick="toggleMotionDetection();"><span id="motioncheck">&#10003</span> Motion Detection</a>
        <a href="#" style="font-size:16px" onclick="toggleAccuracy();"><span id="accuracycheck">&#10003</span> High Accuracy</a>
