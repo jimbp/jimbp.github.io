@@ -165,11 +165,11 @@
 	function initGSearch() {
 	      var input = document.getElementById("pac-input");
 	      var options = {
-	        types: ["establishment"],
+	        types: ['geocode','establishment'],
 	      };
 
 	      const autocomplete = new google.maps.places.Autocomplete(input, options);
-	      autocomplete.setBounds({ east: -71.53066, west: 71.61483, north: 42.65590, south: 42.58239 });
+	      autocomplete.setBounds({ east: -71.53066, west: -71.61483, north: 42.65590, south: 42.58239 });
 
 	      autocomplete.addListener("place_changed", function() {
 	        const place = autocomplete.getPlace();
