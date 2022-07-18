@@ -224,17 +224,15 @@
 	poinames.sort();
 	for (i=0; i < poinames.length; i++) {
 	    var option = document.createElement("option");
-		option.text = poinames[i];
-		option.value = poilocations[poinames[i]];
+		option.value = poinames[i];
 		points.appendChild(option);
 	}
 	function poiinput(ele) {
-	    var value = ele.value;
-	    if (value && value.charAt(0) == '-') {
+	    var value = poilocations[ele.value];
+	    if (Array.isArray(value)) {
 	        searchmodal.style.display = "none";
-	        var parts = value.split(',');
-	        var plat = parseFloat(parts[1]);
-	        var plng = parseFloat(parts[0]);
+	        var plat = value[0];
+	        var plng = value[1];
 	        //console.log('location',plat,plng);
 	        // add a marker and set view
 	        var marker = L.marker([plat, plng],{}).addTo(map);
