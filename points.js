@@ -2864,5 +2864,35 @@ var markerData = {
                 "popupinfo": "Park here and walk up driveway to access Priest Trail"
             }
         },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -71.54865,
+                    42.60999
+                ]
+            },
+            "properties": {
+                "name": "Scarlett Hill",
+                "symbolid": 9,
+                "popupinfo": "Scarlett Hill"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -71.55906,
+                    42.62358
+                ]
+            },
+            "properties": {
+                "name": "Williams Barn and Sorhaug Woods",
+                "symbolid": 9,
+                "popupinfo": "Williams Barn and Sorhaug Woods"
+            }
+        },
    ]
 }
