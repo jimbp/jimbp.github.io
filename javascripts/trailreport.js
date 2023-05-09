@@ -26,5 +26,5 @@
        document.location = "mailto:"+reportemail+"?subject=Trail Issue Report&body="+emailBody;
    }
    function sendReport (ignored) {
-       document.location = "mailto:"+email+"?subject=Trail Issue Report";
+       document.location = "mailto:"+reportemail+"?subject=Trail Issue Report";
    }
