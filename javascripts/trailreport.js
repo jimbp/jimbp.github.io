@@ -21,7 +21,7 @@
        if (href.indexOf('#') > 0)
            href = href.substr(0, href.indexOf('#')); 
        href = href.replaceAll('about.html','Interactive_Maps.html');
-       var emailBody = href+'%23map=18/'+position.coords.latitude.toString()+'/'+position.coords.longitude.toString()+'/mark/'+ position.coords.accuracy+'\n';
+       var emailBody = href+'%23map%3D18/'+position.coords.latitude.toString()+'/'+position.coords.longitude.toString()+'/mark/'+ position.coords.accuracy+'\n';
        console.log(emailBody);
        document.location = "mailto:"+reportemail+"?subject=Trail Issue Report&body="+emailBody;
    }
