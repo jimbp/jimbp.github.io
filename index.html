@@ -1,0 +1,320 @@
+<!--?xml version="1.0" encoding="UTF-8"?-->
+<html lang="en">
+
+<!-- WARNING - this file is generated from scripts/gensite.py, please don't edit directly. Edit the xml files in pages/ -->
+<!-- this section from pages/header-full-map.tmpl -->
+<head>
+    <title>Groton Trails Map</title>
+    <link href="https://fonts.googleapis.com/css?family=Neucha|Open+Sans" rel="stylesheet">
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" >
+
+    <link rel="stylesheet" href="style.css" >
+    <link rel="stylesheet" href="print.css" media="print"  />
+
+    <script src='https://api.mapbox.com/mapbox.js/v3.3.1/mapbox.js'></script>
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.0/dist/leaflet.css" crossorigin=""/>
+	<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" crossorigin=""></script>   
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol/dist/L.Control.Locate.min.css"/>
+	<script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol/dist/L.Control.Locate.min.js" charset="utf-8"></script>
+
+    <script src="javascripts/leaflet.easyPrint.js"></script>   
+	<script src="javascripts/privatepaths.js"></script>
+	<script src="javascripts/nordicPaths.js"></script>
+	<script src="javascripts/trailreport.js"></script>   
+
+    <link rel="icon" sizes="196x196" type="image/png" href="/images/GTN-green-196.png" >
+    <link rel="icon" sizes="32x32"   type="image/png" href="/images/GTN-green-32.png" >
+    <link rel="icon" sizes="16x16"   type="image/png" href="/images/GTN-green-16.png" >
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/GTN-green-180.png">	
+    <link rel="apple-touch-icon" sizes="152x152" href="/images/GTN-green-152.png">	
+    <link rel="apple-touch-icon" sizes="120x120" href="/images/GTN-green-120.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/images/GTN-green-60.png" >
+    <link rel="apple-touch-icon" sizes="76x76" href="/images/GTN-green-76.png" >
+
+    <link rel="manifest" href="manifest.json">
+
+    <style>	
+        #map {		
+        height: 100%;				
+        margin: 0;
+        }
+		#pac-container {
+		    border: 2px solid #ccc!important;
+		    border-radius: 0.4em;
+		    margin:auto;
+		    position: relative;
+		    background-color: #fff;
+			display: inline-block;
+			height: 24px;
+		}
+		#pac-input {
+		  background-color: #fff;
+		  font-size: 15px;
+		  font-weight: 300;
+		  padding: 2px;
+		  text-overflow: ellipsis;
+		  width: 250px;
+		  border:0;outline:0;
+		}
+
+		#pac-input:focus {
+		   outline:none!important;
+		}
+		.fa-search {
+			color:lightgray;
+			display: inline-block;
+			margin-right: 4px;
+		}
+		div.settings {
+			display:none;
+		}
+		.modal {
+		  display: none; /* Hidden by default */
+		  position: fixed; /* Stay in place */
+		  z-index: 1000; /* Sit on top */
+		  left: 0;
+		  top: 0;
+		  width: 100%; /* Full width */
+		  height: 100%; /* Full height */
+		  overflow: auto; /* Enable scroll if needed */
+		  background-color: rgb(0,0,0); /* Fallback color */
+		  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+		}
+		.modal-content {
+		  background-color: #fefefe;
+		  margin: 15% auto; 
+		  padding: 0 20px 20px 20px;
+		  border: 1px solid #888;
+		  width: 80%; /* Could be more or less, depending on screen size */
+		  border: 2px solid #ccc!important;
+		  border-radius: 0.4em;
+		  max-width: 300px;
+		}
+		.modal-close {
+		  color: #aaa;
+		  float: right;
+		  font-size: 28px;
+		  font-weight: bold;
+		}
+		.modal-close:hover,
+		.modal-close:focus {
+		  color: black;
+		  text-decoration: none;
+		  cursor: pointer;
+		}
+     </style>    
+
+</head>
+        
+
+		
+<html>
+<body>
+	
+	<div class="page">
+
+	<!-- this section from pages/nav.tmpl -->
+	<div id="map">
+	</div>
+</div></body>
+
+<script>
+	var lc;
+	var map;
+
+    function toggleMotionDetection() {
+     	lc.options.showCompass = !lc.options.showCompass;
+   		check('motioncheck',lc.options.showCompass);
+    }
+    function toggleAccuracy() {
+   		lc.options.locateOptions.enableHighAccuracy = !lc.options.locateOptions.enableHighAccuracy;
+   		check('accuracycheck',lc.options.locateOptions.enableHighAccuracy);
+    }
+    function check(eid,show) {
+    	var e = document.getElementById(eid);
+    	if (e) {
+    	if (show) e.style.display = "inline";
+    	else e.style.display = "none";
+    	}
+    }
+
+  	function main() {
+     
+	var forInfoOnly = "For general guidance purposes only.<br>Please respect private property.<br>"
+    var osmAttrib = forInfoOnly + '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
+	var mapboxAttrib = forInfoOnly + "&copy; <a href=\'https://www.mapbox.com/about/maps/\'>Mapbox</a> © <a href=\'http://www.openstreetmap.org/copyright\'>OpenStreetMap</a> <strong><a href=\'https://www.mapbox.com/map-feedback/\' target=\'_blank\'>Improve this map</a></strong>"
+	
+    var mapboxSatellite = L.layerGroup()
+
+    var mapboxSatelliteRaw = L.tileLayer('https://api.mapbox.com/v4/mapbox.satellite/{z}/{x}/{y}.jpg?access_token=pk.eyJ1IjoianJlbWlsbGFyZCIsImEiOiJzX2dhaXN3In0.qWyAnddfUVfs61ojApFvsg', {
+        maxZoom: 18,
+        minZoom: 13,
+        attribution: ''
+    }).addTo( mapboxSatellite)
+
+    var satLayerRoad = L.tileLayer('https://gtctiles.blob.core.windows.net/gtctiles/satellite/{z}/{x}/{y}.png', {
+        maxZoom: 18,
+        minZoom: 13,
+        attribution: mapboxAttrib
+    }).addTo(mapboxSatellite )
+
+    var gtcTrails = L.tileLayer('https://gtctiles.blob.core.windows.net/gtctiles/tiles/{z}/{x}/{y}.png', {
+		attribution: osmAttrib,
+		minZoom: 13,	
+        maxZoom: 17		
+    });
+    var osmLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: osmAttrib });
+ 
+    var newMapBox = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+        attribution: osmAttrib,
+        tileSize: 512,
+        maxZoom: 18,
+        zoomOffset: -1,
+        id: 'mapbox/outdoors-v12',
+        accessToken: 'pk.eyJ1IjoianJlbWlsbGFyZCIsImEiOiJzX2dhaXN3In0.qWyAnddfUVfs61ojApFvsg'
+        });
+ 
+    // create leaflet map
+    var clat = 42.608;
+    var clng = -71.572;
+    var czoom = 14;
+    if ( location && location.hash.indexOf("#map=") == 0 ) {
+  	  var url = location.hash.slice(5);
+  	  var ll = url.split('/');
+   	  czoom = Number(ll[0]);
+  	  clat = Number(ll[1]);
+  	  clng = Number(ll[2]);
+    }
+    map = L.map('map', {
+        tap: false,
+        zoomControl: true,
+        center: [clat, clng],
+        zoom: czoom        
+    });
+
+	L.easyPrint({title: 'Print The Map!', position: 'topleft' }).addTo(map);
+
+    // set basemaps
+    var baseMaps = {
+       "Map": newMapBox,
+        "Legacy Map": gtcTrails,
+        "Satellite": mapboxSatellite,
+       	"OSM": osmLayer,
+    };
+	var layerOptions = { 
+	};
+
+    L.control.layers(baseMaps,layerOptions).addTo(map);
+
+    L.control.scale().addTo(map);
+
+    newMapBox.addTo(map);
+    
+	if (typeof loadPrivatePaths === 'function') loadPrivatePaths();
+	if (typeof loadNordicPaths === 'function') loadNordicPaths();
+   		
+	function updateURL() {
+	  var pos = map.getCenter();
+	  var newFragment = "#map=" + map.getZoom() + "/" + pos.lat.toPrecision(7) + "/" + pos.lng.toPrecision(7);
+	  history.replaceState({},'',newFragment);
+	}
+	function onLocationFound(e) {
+	    console.log('Location',e);
+	}
+			
+    if ( location && location.hash.indexOf("#map=") == 0 ) {
+	  var url = location.hash.slice(5);
+	  var ll = url.split('/');
+	  map.panTo( [ll[1],ll[2]] );
+	  map.setZoom(ll[0]);
+	  if (ll.length > 3) {
+	      var title = (ll.length > 4) ? decodeURI(ll[4]) : 'Marked Location'; 
+	      console.log(title);
+	      var marker = L.marker([ll[1],ll[2]],{title: title}).addTo(map);
+	  }
+	} else {
+      var pos = map.getCenter();
+	  var newFragment = "#map=" + map.getZoom() + "/" + pos.lat.toPrecision(7) + "/" + pos.lng.toPrecision(7);
+	  history.replaceState({},'',newFragment);
+	}
+			
+	map.on('moveend', updateURL );
+    map.on('zoomend', updateURL );
+	map.on('zoomend', updatePrivatePaths);
+	map.on('locationfound', onLocationFound);
+
+    var legend = L.control({position: 'topleft'});
+    legend.onAdd = function (map) {
+        var div = L.DomUtil.create('div', 'info legend');
+        div.innerHTML  = '<div class="leaflet-touch"><div class="leaflet-bar"><a class="leaflet-bar-part leaflet-bar-part-single" title="Send a trail status email" href="javascript:confirmTrailReport();" style="outline: currentcolor none medium;"><img src="images/email.jpg"></a></div></div>';
+        return div;
+    };
+    legend.addTo(map);
+
+    // remove leaflet attribution
+    map.attributionControl.setPrefix('')
+	lc = L.control.locate({cacheLocation:false,showCompass:true,locateOptions:{enableHighAccuracy:true,maxZoom:17}});
+	lc.addTo(map);
+  	check('motioncheck',lc.options.showCompass);
+   	check('accuracycheck',lc.options.locateOptions.enableHighAccuracy);
+ 	
+	map.addEventListener('mousemove', function(ev) {lat = ev.latlng.lat; lng = ev.latlng.lng;});
+
+	document.getElementById("map").addEventListener("contextmenu", function (event) {
+    	// Prevent the browser's context menu from appearing
+    	event.preventDefault();
+
+    // Add marker
+    // L.marker([lat, lng], ....).addTo(map);
+    	alert(lng +'\t'+lat+ '\nhttps://www.grotontrails.org/Interactive_Maps.html#map=16/' + lat + '/' + lng);
+
+    	return false; // To disable default popup.
+	});	
+	
+	// dismiss the modal
+	window.onclick = function(event) {
+		if (event.target == searchmodal)
+		    searchmodal.style.display = "none";
+	}
+}
+
+window.onload = main;
+
+</script>
+
+<!-- this section from pages/menuscript.tmpl -->
+<script>
+        function dropdown(id) {        
+            if ( id != "DropdownProperties") {
+                document.getElementById("DropdownProperties").classList.remove("show")
+            }
+            if ( id != "DropdownActivities") {
+                document.getElementById("DropdownActivities").classList.remove("show")
+            }    
+            if ( id != "DropdownMaps") {
+                document.getElementById("DropdownMaps").classList.remove("show")            
+            }
+            document.getElementById(id).classList.toggle("show");
+        }
+            
+        window.onclick = function(event) {
+          if (!event.target.matches('.dropbtn')) {
+        
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+              var openDropdown = dropdowns[i];
+              if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+              }
+            }
+          }
+        }
+</script> 
+        
+
+</html>
+
