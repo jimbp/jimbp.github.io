@@ -23,6 +23,7 @@
 	<script src="javascripts/privatepaths.js"></script>
 	<script src="javascripts/nordicPaths.js"></script>
 	<script src="javascripts/trailreport.js"></script>   
+	<script src="javascripts/points.js"></script>
 
     <link rel="icon" sizes="196x196" type="image/png" href="/images/GTN-green-196.png" >
     <link rel="icon" sizes="32x32"   type="image/png" href="/images/GTN-green-32.png" >
@@ -213,16 +214,82 @@
 
     newMapBox.addTo(map);
     
+    var parkingIconObj = L.icon({ iconUrl: 'images/parking.png',iconSize: [16,16] } )
+	var smallDropIconObj = L.icon({ iconUrl: 'images/trainhead.svg', iconSize: [16,16]})
+
+	for (var i = 0; i < markerData.features.length; ++i) {
+		var markerElementData =  markerData.features[i]
+		var marker;
+		if ( markerElementData.properties.symbolid == 5)
+			marker = L.marker(markerElementData.geometry.coordinates.reverse(),{title: markerElementData.properties.name, icon: parkingIconObj })
+		if (markerElementData.properties.symbolid == 7)
+			marker = L.marker(markerElementData.geometry.coordinates.reverse(),{title: markerElementData.properties.name, icon: smallDropIconObj })
+		markerElementData.marker = marker
+
+        // markerElementData.properties.symbolid
+		// 0 property name
+		// 1 private
+		// 2 campground
+		// 3 general POI
+		// 4 swimming
+		// 5 parking
+		// 6 trailhead
+		// 7 trail access
+		// 8 wet
+		// 9 poi, castle
+
+		if ( markerElementData.properties.symbolid == 5 || markerElementData.properties.symbolid == 7) {
+
+			var parkingArray = markerElementData.geometry.coordinates;
+
+			var googleURL = "https://maps.google.com/?daddr=" + parkingArray[0].toString() + "," + parkingArray[1].toString();
+			var iosURL = "https://maps.apple.com/?daddr=" + parkingArray[0].toString() + "," + parkingArray[1].toString();
+			var bingURL = "https://bing.com/maps/default.aspx?rtp=~adr." + parkingArray[0].toString() + "," + parkingArray[1].toString();
+			var osmURL = "https://www.openstreetmap.org/#map=18/" + parkingArray[0].toString() + "/" + parkingArray[1].toString();
+
+			var directionsHTML = 
+			"<br><a href=\"" + googleURL + "\">Directions to Here</a>";
+
+			var iOS = ['iPad', 'iPhone', 'iPod'].indexOf(navigator.platform) >= 0;			
+			if ( iOS) {
+				directionsHTML = "<br><a href=\"" + iosURL + "\">Directions to Here</a>"
+			}
+			var android = ['Android'].indexOf(navigator.platform) >= 0;
+			if ( android) {
+				directionsHTML = "<br><a href=\"" + googleURL + "\">Directions to Here</a>"
+			}
+
+			markerElementData.properties.popupinfo += directionsHTML; 
+		}
+
+		if ( markerElementData.properties.popupinfo.length > 0 ) {
+			marker.bindPopup(markerElementData.properties.popupinfo)
+		}
+	}
 	if (typeof loadPrivatePaths === 'function') loadPrivatePaths();
 	if (typeof loadNordicPaths === 'function') loadNordicPaths();
    		
+	function updateMarkers() {
+		var zoom = map.getZoom()
+
+		for (var i = 0; i < markerData.features.length; ++i) {
+			var markerElementData =  markerData.features[i]
+			var minZoom = 14;
+
+			if ( zoom >= minZoom ) {
+				map.addLayer( markerElementData.marker)
+			} else {
+				map.removeLayer( markerElementData.marker )
+			}
+		}
+	}
 	function updateURL() {
 	  var pos = map.getCenter();
 	  var newFragment = "#map=" + map.getZoom() + "/" + pos.lat.toPrecision(7) + "/" + pos.lng.toPrecision(7);
 	  history.replaceState({},'',newFragment);
 	}
 	function onLocationFound(e) {
-	    console.log('Location',e);
+	    //console.log('Location',e);
 	}
 			
     if ( location && location.hash.indexOf("#map=") == 0 ) {
@@ -244,7 +311,10 @@
 	map.on('moveend', updateURL );
     map.on('zoomend', updateURL );
 	map.on('zoomend', updatePrivatePaths);
+	map.on('zoomend', updateMarkers);
 	map.on('locationfound', onLocationFound);
+
+	updateMarkers();
 
     var legend = L.control({position: 'topleft'});
     legend.onAdd = function (map) {
@@ -274,11 +344,6 @@
     	return false; // To disable default popup.
 	});	
 	
-	// dismiss the modal
-	window.onclick = function(event) {
-		if (event.target == searchmodal)
-		    searchmodal.style.display = "none";
-	}
 }
 
 window.onload = main;
