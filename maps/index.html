@@ -9,8 +9,8 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" >
 
-    <link rel="stylesheet" href="/maps/style.css" >
-    <link rel="stylesheet" href="/maps/print.css" media="print"  />
+    <link rel="stylesheet" href="style.css" >
+    <link rel="stylesheet" href="print.css" media="print"  />
 
     <script src='https://api.mapbox.com/mapbox.js/v3.3.1/mapbox.js'></script>
 	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.0/dist/leaflet.css" crossorigin=""/>
@@ -19,23 +19,23 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol/dist/L.Control.Locate.min.css"/>
 	<script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol/dist/L.Control.Locate.min.js" charset="utf-8"></script>
 
-    <script src="/maps/javascripts/leaflet.easyPrint.js"></script>   
-	<script src="/maps/javascripts/privatepaths.js"></script>
-	<script src="/maps/javascripts/nordicpaths.js"></script>
-	<script src="/maps/javascripts/trailreport.js"></script>   
-	<script src="/maps/javascripts/points.js"></script>
+    <script src="javascripts/leaflet.easyPrint.js"></script>   
+	<script src="javascripts/privatepaths.js"></script>
+	<script src="javascripts/nordicpaths.js"></script>
+	<script src="javascripts/trailreport.js"></script>   
+	<script src="javascripts/points.js"></script>
 
-    <link rel="icon" sizes="196x196" type="image/png" href="/maps/images/GTN-green-196.png" >
-    <link rel="icon" sizes="32x32"   type="image/png" href="/maps/images/GTN-green-32.png" >
-    <link rel="icon" sizes="16x16"   type="image/png" href="/images/GTN-green-16.png" >
+    <link rel="icon" sizes="196x196" type="image/png" href="images/GTN-green-196.png" >
+    <link rel="icon" sizes="32x32"   type="image/png" href="images/GTN-green-32.png" >
+    <link rel="icon" sizes="16x16"   type="image/png" href="images/GTN-green-16.png" >
 
-    <link rel="apple-touch-icon" sizes="180x180" href="/maps/images/GTN-green-180.png">	
-    <link rel="apple-touch-icon" sizes="152x152" href="/maps/images/GTN-green-152.png">	
-    <link rel="apple-touch-icon" sizes="120x120" href="/maps/images/GTN-green-120.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="/maps/images/GTN-green-60.png" >
-    <link rel="apple-touch-icon" sizes="76x76" href="/maps/images/GTN-green-76.png" >
+    <link rel="apple-touch-icon" sizes="180x180" href="images/GTN-green-180.png">	
+    <link rel="apple-touch-icon" sizes="152x152" href="images/GTN-green-152.png">	
+    <link rel="apple-touch-icon" sizes="120x120" href="images/GTN-green-120.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="images/GTN-green-60.png" >
+    <link rel="apple-touch-icon" sizes="76x76" href="images/GTN-green-76.png" >
 
-    <link rel="manifest" href="/maps/manifest.json">
+    <link rel="manifest" href="manifest.json">
 
     <style>	
         #map {		
@@ -196,6 +196,14 @@
         zoom: czoom        
     });
 
+    var legend = L.control({position: 'topleft'});
+    legend.onAdd = function (map) {
+        var div = L.DomUtil.create('div', 'back legend');
+        div.innerHTML  = '<div class="leaflet-touch"><div class="leaflet-bar"><a class="leaflet-bar-part leaflet-bar-part-single" title="Return to Groton Trails Network" href="https://www.grotontrails.org/Welcome.html" style="outline: currentcolor none medium;"><img style="max-width:30px" src="images/back.png"></a></div></div>';
+        return div;
+    };
+    legend.addTo(map);
+
 	L.easyPrint({title: 'Print The Map!', position: 'topleft' }).addTo(map);
 
     // set basemaps
@@ -323,7 +331,7 @@
         return div;
     };
     legend.addTo(map);
-
+    
     // remove leaflet attribution
     map.attributionControl.setPrefix('')
 	lc = L.control.locate({cacheLocation:false,showCompass:true,locateOptions:{enableHighAccuracy:true,maxZoom:17}});
@@ -343,6 +351,16 @@
 
     	return false; // To disable default popup.
 	});	
+	
+	var topleftdiv = document.querySelector('div.leaflet-top.leaflet-left');
+	if (topleftdiv) {
+		var zoomdiv = document.querySelector('div.leaflet-control-zoom.leaflet-bar.leaflet-control');
+		var backdiv = document.querySelector('div.back.legend.leaflet-control');
+	    console.log(topleftdiv,zoomdiv,backdiv);
+	    if (zoomdiv && backdiv) {
+	        topleftdiv.insertBefore(backdiv,zoomdiv);
+	    }
+	}
 	
 }
 
