@@ -495,7 +495,6 @@
                     var loc = getLocation(inp.value);
                     console.log(inp.value,loc);
         			map.panTo( loc );
-        			map.setZoom(16);
         			if (searchmarker != null)
         			    searchmarker.remove(map); 
         			searchmarker = L.marker(loc,{title: inp.value}).addTo(map);
