@@ -356,11 +356,12 @@
 			}
 
 			markerElementData.properties.popupinfo += directionsHTML; 
-		}
-
-		if ( markerElementData.properties.popupinfo.length > 0 ) {
 			marker.bindPopup(markerElementData.properties.popupinfo)
 		}
+
+		//if ( markerElementData.properties.popupinfo.length > 0 ) {
+		//	marker.bindPopup(markerElementData.properties.popupinfo)
+		//}
 	}
 	if (typeof loadPrivatePaths === 'function') loadPrivatePaths();
 	if (typeof loadNordicPaths === 'function') loadNordicPaths();
