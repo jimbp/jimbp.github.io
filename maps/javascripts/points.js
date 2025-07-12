@@ -643,7 +643,7 @@ var markerData = {
             "properties": {
                 "name": "Groton Rd. trail access",
                 "symbolid": 7,
-                "popupinfo": "Groton Rd. trail access.  Some on-street parking available."
+                "popupinfo": "Red Line and connection to Gamlin Esker Trail."
             }
         },
         {
@@ -1213,7 +1213,7 @@ var markerData = {
             "properties": {
                 "name": "Hill Rd. trail access",
                 "symbolid": 7,
-                "popupinfo": "Access to the Rail trail off of Hill Rd.  Some on-street parking."
+                "popupinfo": "Access to the Ice Line Trail off of Hill Rd.  Some on-street parking."
             }
         },
         {
