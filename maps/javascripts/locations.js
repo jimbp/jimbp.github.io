@@ -525,5 +525,10 @@
 {name:"Ice Line Trail",lat:42.6121376,lng:-71.6081043},
 {name:"East Trail",lat:42.6012702,lng:-71.5940824},
 {name:"Boulders Trail",lat:42.6315826,lng:-71.5128449},
-{name:"Groton Place",lng:-71.595647335052,lat:42.60329414087841}
+{name:"Groton Place",lng:-71.595647335052,lat:42.60329414087841},
+{name:"General Field",lng:-71.58923149108888,lat:42.58354839424923},
+{name:"Blood Land",lng:-71.616697311401388,lat:42.59542818513674},
+{name:'Groton School',lng:-71.5876865386963,lat:42.59271119863374},
+{name:'Grotonwood',lng:-71.53181076049806,lat:42.5958704740543},
+{name:"Bancroft's Castle",lng:-71.55953407287599,lat:42.60793743172565}
 ];
