@@ -10,10 +10,17 @@
         opacity: 0.8,
         dashArray: "3" // Optional: for a dashed trail appearance
     };
+	var townlineMapboxStyle = {
+        color: "#000000", // Green
+        weight: 2,
+        opacity: 0.8,
+        dashArray: "3" // Optional: for a dashed trail appearance
+    };
     
     var publicpathsadded = false;
     var publicSatellitePaths = null;
    	var publicMapboxPaths = null;
+   	var townlineMapboxPaths= null;
     function updatePublicPaths() {
 		var zoom = map.getZoom()
 		if (loadPublicPaths()) {
@@ -30,7 +37,21 @@
 				publicMapboxPaths.remove(mapboxOutdoors);
 			}
 		}
+		if (loadTownlinePaths()) {
+				townlineMapboxPaths.addTo(mapboxOutdoors);
+		}
 	}
+
+	function loadTownlinePaths () {
+		if (typeof townline !== 'undefined') {
+  			if (townlineMapboxPaths == null)
+       			townlineMapboxPaths = L.geoJSON(townline,{style: townlineMapboxStyle});
+       		//console.log('loadPublicPaths true');
+       		return true;
+       	}
+       	//console.log('loadPublicPaths false');
+      	return false;
+    }
 
     function loadPublicPaths () {
 		if (typeof pathsWithName !== 'undefined') {
