@@ -362,7 +362,51 @@
 		//	marker.bindPopup(markerElementData.properties.popupinfo)
 		//}
 	}
-	if (typeof loadPrivatePaths === 'function') loadPrivatePaths();
+ // private paths are marked with gray
+    var privateStyle = {
+        "fillColor": "#C0C0C0",
+        "color": "#C0C0C0",
+        "weight": 3,
+        "opacity": 1.0,
+        "fillOpacity": 1.0,
+    };
+    
+    var privatepathsadded = false;
+    var privatepaths = null;
+    function updatePrivatePaths() {
+		var zoom = map.getZoom()
+		//console.log("up date private paths zoom "+zoom);
+		if (zoom > 13 && !privatepathsadded) {
+			privatepathsadded = true;
+			if (privatepaths != null) privatepaths.addTo(map);
+		} else if (zoom <= 13 && privatepathsadded) {
+			privatepathsadded = false;
+			if (privatepaths != null) privatepaths.remove(map);
+		}
+	}
+
+    function loadPrivatePaths () {
+        privatepaths = L.geoJSON(privatePaths,{style: privateStyle});
+        updatePrivatePaths();
+        
+        var legend = L.control({position: 'topright'});
+        legend.onAdd = function (map) {
+            var div = L.DomUtil.create('div', 'info legend');
+            var categories = ['Trails','Trail','Road','Unmaintained road','Closed to public'];
+            var backgrounds = ['repeating-linear-gradient(to right,#fff, #fff 20%,#D4BB3A 30%);','#fff','#fff','#fff','#C0C0C0'];
+            var borders = ['#D4BB3A','#8094F4','#E6E4E0','#D4BB3A','#D4BB3A'];
+            var labelstyles = ['width:155px;position:relative;top:10px;','width:155px;visibility: hidden;','width:155px;','width:155px;','width:155px;'];
+            var html = '<div class="infoDiv"><img src="images/help.png" style="background-image:none" class="leaflet-control-layers-toggle"/></div><ul class="hide">';
+            for (var i = 0; i < categories.length; i++) {
+                html += '<li><span style="box-sizing:content-box;background:'+backgrounds[i]+';border: 2px solid '+borders[i]+'"></span><div style="'+labelstyles[i]+'">'+categories[i]+'</div></li>'
+            }
+            html += '</ul>';
+            div.innerHTML  = html;
+            return div;
+        };
+        legend.addTo(map);
+    }
+    if (typeof loadPrivatePaths === 'function') loadPrivatePaths();
 	if (typeof loadNordicPaths === 'function') loadNordicPaths();
    		
 	function updateMarkers() {
