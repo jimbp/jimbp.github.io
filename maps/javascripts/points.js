@@ -1896,21 +1896,6 @@ var markerData = {
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -71.514437,
-                    42.599791
-                ]
-            },
-            "properties": {
-                "name": "Lost Lake Dr. trail access",
-                "symbolid": 7,
-                "popupinfo": "Trail access off Lost Lake Dr.  No off-street parking available."
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -71.514737,
                     42.600439
                 ]
@@ -2354,21 +2339,6 @@ var markerData = {
                 "name": "Stone Foundation ",
                 "symbolid": 3,
                 "popupinfo": "Stone foundation of some sort.  Possibly an old root cellar."
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -71.625077,
-                    42.613528
-                ]
-            },
-            "properties": {
-                "name": "Kemp St. trail access",
-                "symbolid": 7,
-                "popupinfo": "Trail access to Kemp Forest and Throne Hill via Kemp St.  Sign at entrance says Kemp Forest."
             }
         },
         {
