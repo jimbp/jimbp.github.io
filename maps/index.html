@@ -513,7 +513,7 @@
   		}
 
     	var myIcon = L.divIcon({className: 'gtc-div-icon'});
-    	markers.push(L.marker([lat, lng], {icon: myIcon}).bindPopup('Lat: '+lat.toFixed(2)+'<br>Lon: '+lng.toFixed(5)+'<br>dist: '+distance.toFixed(2)+' mi').addTo(map));		
+    	markers.push(L.marker([lat, lng], {icon: myIcon}).bindPopup('Lat: '+lat.toFixed(5)+'<br>Lon: '+lng.toFixed(5)+'<br>dist: '+distance.toFixed(2)+' mi').addTo(map));		
     	return false; // To disable default popup.
 	});	
 	
