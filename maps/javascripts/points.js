@@ -386,9 +386,9 @@ var markerData = {
                 ]
             },
             "properties": {
-                "name": "New Pond Rd. Parking",
-                "symbolid": 5,
-                "popupinfo": "On-street parking New Pond Rd."
+                "name": "New Pond Rd. Trail Access",
+                "symbolid": 7,
+                "popupinfo": "Trail Access to Batten Woods"
             }
         },
         {
@@ -426,14 +426,14 @@ var markerData = {
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -71.507658,
-                    42.587835
+                    -71.50845,
+                    42.58826
                 ]
             },
             "properties": {
-                "name": "Trail access off Forest Dr.",
+                "name": "Trail access on Paugus Trail",
                 "symbolid": 7,
-                "popupinfo": "Trail access vi unfinished cul-de-sac off Forest Dr.  No off-street parking."
+                "popupinfo": "Trail access to Groton Woods Conservation Area"
             }
         },
         {
@@ -786,16 +786,48 @@ var markerData = {
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -71.547245,
-                    42.614848
+                    -71.54719,
+                    42.61465
                 ]
             },
             "properties": {
-                "name": "Martins Pond Parking",
-                "symbolid": 5,
-                "popupinfo": "Small off-street parking area."
+                "name": "Martins Pond Rd. trail access",
+                "symbolid": 7,
+                "popupinfo": "Trail access of Martins Pond Road."
             }
         },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -71.54231,
+                    42.61677
+                ]
+            },
+            "properties": {
+                "name": "Martins Pond Rd. trail access",
+                "symbolid": 7,
+                "popupinfo": "Trail access of Martins Pond Road."
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -71.5396,
+                    42.60972
+                ]
+            },
+            "properties": {
+                "name": "Lowell Rd. trail access",
+                "symbolid": 7,
+                "popupinfo": "Trail access of Lowell Road."
+            }
+        },
+
+ 
         {
             "type": "Feature",
             "geometry": {
@@ -1386,36 +1418,6 @@ var markerData = {
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -71.582766,
-                    42.588883
-                ]
-            },
-            "properties": {
-                "name": "Farmers Row trail access",
-                "symbolid": 7,
-                "popupinfo": "Trail access off Farmers Row.  Some on the road parking available."
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -71.582863,
-                    42.58837
-                ]
-            },
-            "properties": {
-                "name": "Farmers Row trail access",
-                "symbolid": 7,
-                "popupinfo": "Trail access off Farmers Row.  Some on the road parking available."
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -71.572838,
                     42.644112
                 ]
@@ -1701,14 +1703,44 @@ var markerData = {
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -71.576581,
-                    42.625752
+                    -71.59662,
+                    42.58379
                 ]
             },
             "properties": {
-                "name": "Common St. trail access.",
+                "name": "Shirley Rd. trail access.",
                 "symbolid": 7,
-                "popupinfo": "Trail access off of Common St.  Some on-street parking is available."
+                "popupinfo": "Trail access off of Shirley Road."
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -71.52424,
+                    42.61572
+                ]
+            },
+            "properties": {
+                "name": "Old Dunstable Rd. trail access.",
+                "symbolid": 7,
+                "popupinfo": "Trail access off of Old Dunstable Road."
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -71.52538,
+                    42.61358
+                ]
+            },
+            "properties": {
+                "name": "Old Dunstable Rd. trail access.",
+                "symbolid": 7,
+                "popupinfo": "Trail access off of Old Dunstable Road."
             }
         },
         {
@@ -1724,6 +1756,36 @@ var markerData = {
                 "name": "Sand Hill Rd. trail access.",
                 "symbolid": 7,
                 "popupinfo": "Trail access off of Sand Hill Rd.  Some on-street parking is available."
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -71.52274,
+                    42.61916
+                ]
+            },
+            "properties": {
+                "name": "Old Dunstable Rd. Parking",
+                "symbolid": 5,
+                "popupinfo": "Off-street parking off Old Dunstable Rd."
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -71.52209,
+                    42.61978
+                ]
+            },
+            "properties": {
+                "name": "Old Dunstable Rd. Parking",
+                "symbolid": 5,
+                "popupinfo": "Off-street parking off Old Dunstable Rd."
             }
         },
         {
@@ -2516,9 +2578,9 @@ var markerData = {
                 ]
             },
             "properties": {
-                "name": "Old Dunstable Rd. Parking",
-                "symbolid": 5,
-                "popupinfo": "Off-street parking off Old Dunstable Rd."
+                "name": "Old Dunstable Trail Access",
+                "symbolid": 7,
+                "popupinfo": "Trail Access off Old Dunstable Rd."
             }
         },
         {
@@ -2531,24 +2593,9 @@ var markerData = {
                 ]
             },
             "properties": {
-                "name": "Old Dunstable Rd. Parking",
-                "symbolid": 5,
-                "popupinfo": "Off-street parking off Old Dunstable Rd."
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -71.523552,
-                    42.627766
-                ]
-            },
-            "properties": {
-                "name": "Martins Pond and Rocky Hill Rd. Parking",
-                "symbolid": 5,
-                "popupinfo": "Off-street parking at intersection of Martins Pond and Rocky Hill Rd."
+                "name": "Old Dunstable Trail Access",
+                "symbolid": 7,
+                "popupinfo": "Trail Access off Old Dunstable Rd."
             }
         },
         {
@@ -2588,21 +2635,6 @@ var markerData = {
                 "coordinates": [
                     -71.520304,
                     42.612707
-                ]
-            },
-            "properties": {
-                "name": "Burntmeadow Rd. trail access",
-                "symbolid": 7,
-                "popupinfo": "Trail access off Burntmeadow Rd.  Limited on street parking available."
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -71.51133,
-                    42.621477
                 ]
             },
             "properties": {
@@ -2909,5 +2941,143 @@ var markerData = {
                 "popupinfo": "Williams Barn and Sorhaug Woods"
             }
         },
-   ]
+ 
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -71.56193,
+                    42.61730
+                ]
+            },
+            "properties": {
+                "name": "Priest Trail access",
+                "symbolid": 7,
+                "popupinfo": "Park here and walk up driveway to access Priest Trail"
+            }
+        },
+
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -71.55733,
+                    42.62815
+                ]
+            },
+            "properties": {
+                "name": "Brown Trail Access",
+                "symbolid": 7,
+                "popupinfo": "Brown Trail Access"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -71.54945,
+                    42.63615
+                ]
+            },
+            "properties": {
+                "name": "Brown Trail Access",
+                "symbolid": 7,
+                "popupinfo": "Brown Trail Access"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -71.51707,
+                    42.58310
+                ]
+            },
+            "properties": {
+                "name": "Priest Memorial Area Access",
+                "symbolid": 7,
+                "popupinfo": "Richard F. Priest Memorial Area Access"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -71.53421,
+                    42.62266
+                ]
+            },
+            "properties": {
+                "name": "Nipmuc Meadows Parking",
+                "symbolid": 5,
+                "popupinfo": "Nipmuc Meadows parking access to Baddacook Pond shoreline"
+            }
+        },
+
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -71.51462,
+                    42.58465
+                ]
+            },
+            "properties": {
+                "name": "Trail access",
+                "symbolid": 7,
+                "popupinfo": "Trail access"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -71.51503,
+                    42.58425
+                ]
+            },
+            "properties": {
+                "name": "Trail access",
+                "symbolid": 7,
+                "popupinfo": "Trail access"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -71.51414,
+                    42.58346
+                ]
+            },
+            "properties": {
+                "name": "Trail access",
+                "symbolid": 7,
+                "popupinfo": "Trail access"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -71.51375,
+                    42.58372
+                ]
+            },
+            "properties": {
+                "name": "Trail access",
+                "symbolid": 7,
+                "popupinfo": "Trail access"
+            }
+        },
+	]
 }
