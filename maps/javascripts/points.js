@@ -1,22 +1,37 @@
 var markerData = {
     "type": "FeatureCollection",
     "features": [
-        {
+         {
             "type": "Feature",
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -71.616285,
-                    42.618892
+                    -71.650274,
+                    42.636351
                 ]
             },
             "properties": {
                 "name": "Parking",
                 "symbolid": 5,
-                "popupinfo": "A small parking area located just off-street."
+                "popupinfo": "Consists of a large parking lot capable of holding 10+ cars off-street.  Located at the main entrance to Bertozzi."
             }
         },
         {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -71.56890,
+                    42.65293
+                ]
+            },
+            "properties": {
+                "name": "Parking",
+                "symbolid": 5,
+                "popupinfo": "Parking for Wattles Pond"
+            }
+        },
+       {
             "type": "Feature",
             "geometry": {
                 "type": "Point",
@@ -151,22 +166,7 @@ var markerData = {
                 "popupinfo": "A small bridge across the river."
             }
         },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -71.650274,
-                    42.636351
-                ]
-            },
-            "properties": {
-                "name": "Parking",
-                "symbolid": 5,
-                "popupinfo": "Consists of a large parking lot capable of holding 10+ cars off-street.  Located at the main entrance to Bertozzi."
-            }
-        },
-        {
+         {
             "type": "Feature",
             "geometry": {
                 "type": "Point",
@@ -596,9 +596,9 @@ var markerData = {
                 ]
             },
             "properties": {
-                "name": "Old Dunstable Rd. trail access",
-                "symbolid": 7,
-                "popupinfo": "Old Dunstable Rd. trail access.  Some on-street parking available."
+                "name": "Old Dunstable Rd. parking",
+                "symbolid": 5,
+                "popupinfo": "Old Dunstable Rd. parking."
             }
         },
         {
@@ -641,8 +641,8 @@ var markerData = {
                 ]
             },
             "properties": {
-                "name": "Groton Rd. trail access",
-                "symbolid": 7,
+                "name": "Groton Rd. parking",
+                "symbolid": 5,
                 "popupinfo": "Red Line and connection to Gamlin Esker Trail."
             }
         },
@@ -746,9 +746,9 @@ var markerData = {
                 ]
             },
             "properties": {
-                "name": "Shattuck St. Parking",
-                "symbolid": 5,
-                "popupinfo": "Off-street parking available for several vehicles."
+                "name": "Trail access",
+                "symbolid": 7,
+                "popupinfo": "Trail access"
             }
         },
         {
@@ -878,36 +878,6 @@ var markerData = {
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -71.512805,
-                    42.586979
-                ]
-            },
-            "properties": {
-                "name": "Duck Pond Rd. Parking",
-                "symbolid": 5,
-                "popupinfo": "Consists of on-street parking at the end of the road."
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -71.510306,
-                    42.579419
-                ]
-            },
-            "properties": {
-                "name": "Cul-de-sac Parking",
-                "symbolid": 5,
-                "popupinfo": "On-street parking at the end of the cul-de-sac."
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -71.595684,
                     42.604776
                 ]
@@ -933,21 +903,7 @@ var markerData = {
                 "popupinfo": "Groton School Boathouse"
             }
         },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -71.576508,
-                    42.631985
-                ]
-            },
-            "properties": {
-                "name": "Nashua River Rail Trail Parking",
-                "symbolid": 5,
-                "popupinfo": "Off-street parking at the Nashua River Rail Trail."
-            }
-        },
+
         {
             "type": "Feature",
             "geometry": {
@@ -993,22 +949,7 @@ var markerData = {
                 "popupinfo": "Power line access. DANGER, KEEP OUT 1"
             }
         },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -71.618028,
-                    42.616524
-                ]
-            },
-            "properties": {
-                "name": "Parking",
-                "symbolid": 5,
-                "popupinfo": "A small parking area located just off-street."
-            }
-        },
-        {
+         {
             "type": "Feature",
             "geometry": {
                 "type": "Point",
@@ -1108,9 +1049,9 @@ var markerData = {
                 ]
             },
             "properties": {
-                "name": "Hawtree Way parking",
-                "symbolid": 5,
-                "popupinfo": "Parking area on Hawtree Way cul-de-sac."
+                "name": "Trail Access",
+                "symbolid": 7,
+                "popupinfo": "Hawtree Trail Access"
             }
         },
         {
@@ -1171,21 +1112,6 @@ var markerData = {
                 "name": "Skyfields Dr. Parking",
                 "symbolid": 5,
                 "popupinfo": "Off-street parking for half a dozen vehicles off Rt. 119 at the beginning of Skyfields Dr."
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -71.564184,
-                    42.588588
-                ]
-            },
-            "properties": {
-                "name": "Indian Hill Rd. trail access",
-                "symbolid": 7,
-                "popupinfo": "Indian Hill Rd. trail access.  Some on-street parking available."
             }
         },
         {
@@ -1303,9 +1229,9 @@ var markerData = {
                 ]
             },
             "properties": {
-                "name": "Parking",
-                "symbolid": 5,
-                "popupinfo": "On-street parking located at the main entrance to the parcel."
+                "name": "Trail access",
+                "symbolid": 7,
+                "popupinfo": "Trail access"
             }
         },
         {
@@ -1363,9 +1289,9 @@ var markerData = {
                 ]
             },
             "properties": {
-                "name": "Sawtell Dr. Parking",
-                "symbolid": 5,
-                "popupinfo": "On-street cul-de-sac parking."
+                "name": "Trail Access",
+                "symbolid": 7,
+                "popupinfo": "Trail Access"
             }
         },
         {
@@ -1408,9 +1334,9 @@ var markerData = {
                 ]
             },
             "properties": {
-                "name": "Peabody St. trail access",
-                "symbolid": 7,
-                "popupinfo": "Trail access off Peabody St.  Some on the road parking available."
+                "name": "Peabody St. parking",
+                "symbolid": 5,
+                "popupinfo": "Parking off Peabody St."
             }
         },
         {
@@ -1453,9 +1379,9 @@ var markerData = {
                 ]
             },
             "properties": {
-                "name": "Drum Hill Rd. Parking",
-                "symbolid": 5,
-                "popupinfo": "Off-street parking available for several vehicles on the cul-de-sac."
+                "name": "Trail Access",
+                "symbolid": 7,
+                "popupinfo": "Trail Access"
             }
         },
         {
@@ -1748,21 +1674,6 @@ var markerData = {
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -71.574001,
-                    42.634273
-                ]
-            },
-            "properties": {
-                "name": "Sand Hill Rd. trail access.",
-                "symbolid": 7,
-                "popupinfo": "Trail access off of Sand Hill Rd.  Some on-street parking is available."
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -71.52274,
                     42.61916
                 ]
@@ -2003,14 +1914,14 @@ var markerData = {
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -71.560101,
-                    42.65027
+                    -71.56022,
+                    42.64905
                 ]
             },
             "properties": {
-                "name": "Nashua Rd. trail access",
-                "symbolid": 7,
-                "popupinfo": "Trail access via Nashua Rd.  Some on-street parking."
+                "name": "Trail Parking",
+                "symbolid": 5,
+                "popupinfo": "Trail access via Nashua Rd.  Some parking."
             }
         },
         {
@@ -2023,8 +1934,8 @@ var markerData = {
                 ]
             },
             "properties": {
-                "name": "Casella Preserve Nashua Rd. trail access",
-                "symbolid": 7,
+                "name": "Casella Preserve Nashua Rd. parking",
+                "symbolid": 5,
                 "popupinfo": "Small off-street parking lot."
             }
         },
@@ -2123,36 +2034,6 @@ var markerData = {
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -71.585921,
-                    42.610674
-                ]
-            },
-            "properties": {
-                "name": "Mill St. parking",
-                "symbolid": 5,
-                "popupinfo": "Parking area off Mill St.  Off-road parking available for several vehicles."
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -71.590411,
-                    42.61415
-                ]
-            },
-            "properties": {
-                "name": "Jenkins Rd. trail access",
-                "symbolid": 7,
-                "popupinfo": "Access to the parcel via Jenkins Rd.  No off-street parking."
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
                     -71.591709,
                     42.61456
                 ]
@@ -2161,21 +2042,6 @@ var markerData = {
                 "name": "Jenkins Rd. trail access",
                 "symbolid": 7,
                 "popupinfo": "Access to the parcel via Jenkins Rd.  No off-street parking."
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -71.592353,
-                    42.613771
-                ]
-            },
-            "properties": {
-                "name": "Riverbend Dr. trail access",
-                "symbolid": 7,
-                "popupinfo": "Access to the parcel via Riverbend Dr.  No off-street parking."
             }
         },
         {
@@ -2238,22 +2104,7 @@ var markerData = {
                 "popupinfo": "<a href=\"http://www.gctrust.org/archives/1828\">Throne Hill</a> and Kemp Forest. Over five miles of mostly flat trails through varying landscapes.  There are some areas that can be wet depending on the time of year, but a very nice hiking parcel."
             }
         },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -71.617191,
-                    42.625918
-                ]
-            },
-            "properties": {
-                "name": "Castle Dr. Parking",
-                "symbolid": 5,
-                "popupinfo": "Castle Dr. Parking.  Room for several vehicles to park along the cul-de-sac.  Trail entrance on cul-de-sac.  To get to the actual trail, walk up the right side of the driveway, staying between the two houses.  The trailhead is at the top of the driveway"
-            }
-        },
-        {
+         {
             "type": "Feature",
             "geometry": {
                 "type": "Point",
@@ -2438,29 +2289,14 @@ var markerData = {
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -71.604848,
-                    42.597601
+                    -71.60512,
+                    42.59725
                 ]
             },
             "properties": {
                 "name": "Town Forest Rd. Parking",
                 "symbolid": 5,
                 "popupinfo": "Town Forest Rd. Parking.  Offstreet parking available for a number of vehicles."
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -71.616939,
-                    42.601747
-                ]
-            },
-            "properties": {
-                "name": "Main St. Parking",
-                "symbolid": 5,
-                "popupinfo": "Parking just off Main St. leading towards the senior center.  Offstreet parking available for a number of vehicles."
             }
         },
         {
@@ -2553,21 +2389,7 @@ var markerData = {
                 "popupinfo": "Seasonal wet area that may require jumping over a small stream to cross from the tracks to the forest."
             }
         },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -71.529055,
-                    42.64157
-                ]
-            },
-            "properties": {
-                "name": "Raddin Rd. Parking",
-                "symbolid": 5,
-                "popupinfo": "Off-street parking off Raddin Rd."
-            }
-        },
+
         {
             "type": "Feature",
             "geometry": {
@@ -3071,6 +2893,298 @@ var markerData = {
                 "coordinates": [
                     -71.51375,
                     42.58372
+                ]
+            },
+            "properties": {
+                "name": "Trail access",
+                "symbolid": 7,
+                "popupinfo": "Trail access"
+            }
+        },
+        
+        
+        
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -71.57503,
+                    42.59189
+                ]
+            },
+            "properties": {
+                "name": "Trail access",
+                "symbolid": 7,
+                "popupinfo": "Trail access"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -71.61249,
+                    42.60340
+                ]
+            },
+            "properties": {
+                "name": "Trail access",
+                "symbolid": 7,
+                "popupinfo": "Trail access"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -71.61422,
+                    42.60652
+                ]
+            },
+            "properties": {
+                "name": "Ice Line Trail access",
+                "symbolid": 7,
+                "popupinfo": "Trail access"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -71.60846,
+                    42.62058
+                ]
+            },
+            "properties": {
+                "name": "Trail access",
+                "symbolid": 7,
+                "popupinfo": "Trail access"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -71.60795,
+                    42.61856
+                ]
+            },
+            "properties": {
+                "name": "Trail access",
+                "symbolid": 7,
+                "popupinfo": "Trail access"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -71.60963,
+                    42.62236
+                ]
+            },
+            "properties": {
+                "name": "Trail access",
+                "symbolid": 7,
+                "popupinfo": "Trail access"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -71.59955,
+                    42.62420
+                ]
+            },
+            "properties": {
+                "name": "Trail access",
+                "symbolid": 7,
+                "popupinfo": "Trail access"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -71.56034,
+                    42.61435
+                ]
+            },
+            "properties": {
+                "name": "Trail access",
+                "symbolid": 7,
+                "popupinfo": "Trail access"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -71.52802,
+                    42.61000
+                ]
+            },
+            "properties": {
+                "name": "Trail access",
+                "symbolid": 7,
+                "popupinfo": "Trail access"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -71.52758,
+                    42.60701
+                ]
+            },
+            "properties": {
+                "name": "Trail access",
+                "symbolid": 7,
+                "popupinfo": "Trail access"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -71.50827,
+                    42.64057
+                ]
+            },
+            "properties": {
+                "name": "Trail access",
+                "symbolid": 7,
+                "popupinfo": "Trail access"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -71.55907,
+                    42.65135
+                ]
+            },
+            "properties": {
+                "name": "Trail access",
+                "symbolid": 7,
+                "popupinfo": "Trail access"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -71.56149,
+                    42.64810
+                ]
+            },
+            "properties": {
+                "name": "Trail access",
+                "symbolid": 7,
+                "popupinfo": "Trail access"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -71.56005,
+                    42.64618
+                ]
+            },
+            "properties": {
+                "name": "Trail access",
+                "symbolid": 7,
+                "popupinfo": "Trail access"
+            }
+        },
+      {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -71.55508,
+                    42.59398
+                ]
+            },
+            "properties": {
+                "name": "Trail access",
+                "symbolid": 7,
+                "popupinfo": "Trail access"
+            }
+        },
+
+
+     {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -71.56436,
+                    42.58908
+                ]
+            },
+            "properties": {
+                "name": "Trail head parking",
+                "symbolid": 5,
+                "popupinfo": "Trail head parking"
+            }
+        },
+
+
+     {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -71.60950,
+                    42.62554
+                ]
+            },
+            "properties": {
+                "name": "Trail head parking",
+                "symbolid": 5,
+                "popupinfo": "Trail head parking"
+            }
+        },
+     {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -71.52390,
+                    42.60457
+                ]
+            },
+            "properties": {
+                "name": "Trail head parking",
+                "symbolid": 5,
+                "popupinfo": "Trail head parking"
+            }
+        },
+       {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -71.61899,
+                    42.61438
                 ]
             },
             "properties": {
