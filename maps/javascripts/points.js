@@ -746,9 +746,54 @@ var markerData = {
                 ]
             },
             "properties": {
-                "name": "Trail access",
+                "name": "Trail parking",
+                "symbolid": 5,
+                "popupinfo": "Trail parking"
+            }
+        },
+       {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -71.55636,
+                    42.60896
+                ]
+            },
+            "properties": {
+                "name": "Trail Access",
                 "symbolid": 7,
-                "popupinfo": "Trail access"
+                "popupinfo": "Trail Access"
+            }
+        },
+      {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -71.51026,
+                    42.57941
+                ]
+            },
+            "properties": {
+                "name": "Trail Access",
+                "symbolid": 7,
+                "popupinfo": "Trail Access"
+            }
+        },
+      {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -71.51281,
+                    42.58689
+                ]
+            },
+            "properties": {
+                "name": "Trail Access",
+                "symbolid": 7,
+                "popupinfo": "Trail Access"
             }
         },
         {
@@ -1414,19 +1459,20 @@ var markerData = {
                 "popupinfo": "Trail access via McLains Woods Rd.  No on-street parking."
             }
         },
+
         {
             "type": "Feature",
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -71.556668,
-                    42.639429
+                    -71.56703,
+                    42.64568
                 ]
             },
             "properties": {
-                "name": "McLains Woods Rd. trail access",
+                "name": "MTrail access",
                 "symbolid": 7,
-                "popupinfo": "Trail access to a short trail off McLains Woods Rd.  No on-street parking."
+                "popupinfo": "Trail access"
             }
         },
         {
@@ -1434,17 +1480,33 @@ var markerData = {
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -71.56118,
-                    42.626516
+                    -71.56445,
+                    42.64654
                 ]
             },
             "properties": {
-                "name": "Chicopee Row trail access",
+                "name": "MTrail access",
                 "symbolid": 7,
-                "popupinfo": "Trail access to a the trail system.  No on-street parking."
+                "popupinfo": "Trail access"
             }
         },
         {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -71.56340,
+                    42.64804
+                ]
+            },
+            "properties": {
+                "name": "MTrail access",
+                "symbolid": 7,
+                "popupinfo": "Trail access"
+            }
+        },
+
+         {
             "type": "Feature",
             "geometry": {
                 "type": "Point",
@@ -2389,22 +2451,6 @@ var markerData = {
                 "popupinfo": "Seasonal wet area that may require jumping over a small stream to cross from the tracks to the forest."
             }
         },
-
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -71.51837,
-                    42.624197
-                ]
-            },
-            "properties": {
-                "name": "Old Dunstable Trail Access",
-                "symbolid": 7,
-                "popupinfo": "Trail Access off Old Dunstable Rd."
-            }
-        },
         {
             "type": "Feature",
             "geometry": {
@@ -2435,22 +2481,7 @@ var markerData = {
                 "popupinfo": "Trail access on both sides of Rocky Hill Rd.  Limited on street parking available."
             }
         },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -71.524276,
-                    42.627692
-                ]
-            },
-            "properties": {
-                "name": "Rocky Hill Rd. trail access",
-                "symbolid": 7,
-                "popupinfo": "Trail access off Rocky Hill Rd.  Limited on street parking available."
-            }
-        },
-        {
+         {
             "type": "Feature",
             "geometry": {
                 "type": "Point",
@@ -2470,14 +2501,14 @@ var markerData = {
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -71.511145,
-                    42.637287
+                    -71.54002,
+                    42.64914
                 ]
             },
             "properties": {
-                "name": "Blood Rd. trail access",
+                "name": "Trail access",
                 "symbolid": 7,
-                "popupinfo": "Trail access off Blood Rd.  Limited on street parking available."
+                "popupinfo": "Trail access"
             }
         },
         {
@@ -2487,6 +2518,21 @@ var markerData = {
                 "coordinates": [
                     -71.56092,
                     42.626208
+                ]
+            },
+            "properties": {
+                "name": "Wharton Plantation Parking",
+                "symbolid": 5,
+                "popupinfo": "Off-street parking at the Wharton Plantation"
+            }
+        },
+       {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -71.52368,
+                    42.62764
                 ]
             },
             "properties": {
@@ -3188,9 +3234,9 @@ var markerData = {
                 ]
             },
             "properties": {
-                "name": "Trail access",
-                "symbolid": 7,
-                "popupinfo": "Trail access"
+                "name": "Trail parking",
+                "symbolid": 5,
+                "popupinfo": "Trail parking"
             }
         },
 	]
